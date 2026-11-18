@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_medical_pharmacist" model="res.groups">
+        <field name="name">Pharmacist</field>
+        <field name="sequence">30</field>
+        <field name="comment">Reads prescriptions sent to their pharmacy and records what was dispensed.</field>
+        <field name="privilege_id" ref="medical_base.res_groups_privilege_medical_role"/>
+    </record>
+
+    <record id="seq_medical_prescription" model="ir.sequence">
+        <field name="name">Prescription</field>
+        <field name="code">medical.prescription</field>
+        <field name="prefix">RX/</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="seq_medical_dispense" model="ir.sequence">
+        <field name="name">Dispensing</field>
+        <field name="code">medical.dispense</field>
+        <field name="prefix">DSP/</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

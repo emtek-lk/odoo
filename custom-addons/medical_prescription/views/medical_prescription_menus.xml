@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="medical_base.menu_medical_root" model="ir.ui.menu">
+        <field name="group_ids" eval="[(4, ref('group_medical_pharmacist'))]"/>
+    </record>
+    <menuitem id="menu_medical_prescriptions" name="Prescriptions" parent="medical_base.menu_medical_root"
+              action="medical_prescription_action" sequence="30"
+              groups="medical_base.group_medical_patient,medical_base.group_medical_practitioner,medical_base.group_medical_manager,group_medical_pharmacist"/>
+    <menuitem id="menu_medical_dispense" name="Dispensing" parent="medical_base.menu_medical_root"
+              action="medical_dispense_action" sequence="40"
+              groups="group_medical_pharmacist,medical_base.group_medical_manager"/>
+    <menuitem id="menu_medical_medications" name="Medications" parent="medical_base.menu_medical_config"
+              action="medical_medication_action" sequence="20"/>
+</odoo>
