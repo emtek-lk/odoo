@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="party_green_valley" model="res.partner">
+        <field name="name">Green Valley Farm</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Nuwara Eliya</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_sunrise" model="res.partner">
+        <field name="name">Sunrise Orchards</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Kandy</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_lotus" model="res.partner">
+        <field name="name">Lotus Paddy Growers</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Polonnaruwa</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_highland" model="res.partner">
+        <field name="name">Highland Tea Estate</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Nuwara Eliya</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_spice" model="res.partner">
+        <field name="name">Coastal Spice Gardens</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Matale</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_crew" model="res.partner">
+        <field name="name">QuickHarvest Crew</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Nuwara Eliya</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_harvester')])]"/>
+    </record>
+    <record id="party_freshfoods" model="res.partner">
+        <field name="name">FreshFoods Ltd</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Colombo</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_processor')])]"/>
+    </record>
+    <record id="party_mill" model="res.partner">
+        <field name="name">Golden Mill Rice</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Polonnaruwa</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_processor')])]"/>
+    </record>
+    <record id="party_teafactory" model="res.partner">
+        <field name="name">Ceylon Tea Factory</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Nuwara Eliya</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_processor')])]"/>
+    </record>
+    <record id="party_swift" model="res.partner">
+        <field name="name">Swift Logistics</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Colombo</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_transporter')])]"/>
+    </record>
+    <record id="party_coldchain" model="res.partner">
+        <field name="name">ColdChain Express</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Colombo</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_transporter')])]"/>
+    </record>
+    <record id="party_wholesale" model="res.partner">
+        <field name="name">Island Wholesale</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Colombo</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_distributor')])]"/>
+    </record>
+    <record id="party_metro" model="res.partner">
+        <field name="name">Metro Distributors</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Kandy</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_distributor')])]"/>
+    </record>
+    <record id="party_citymart" model="res.partner">
+        <field name="name">CityMart</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Colombo</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_retailer')])]"/>
+    </record>
+    <record id="party_cornershop" model="res.partner">
+        <field name="name">Corner Fresh Shop</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Kandy</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_retailer')])]"/>
+    </record>
+    <record id="party_supersaver" model="res.partner">
+        <field name="name">Super Saver</field>
+        <field name="is_company" eval="True"/>
+        <field name="trace_region">Galle</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_retailer')])]"/>
+    </record>
+    <record id="user_green_valley" model="res.users">
+        <field name="name">Green Valley Farm (team)</field>
+        <field name="login">trace_green_valley</field>
+        <field name="password">trace_green_valley</field>
+        <field name="parent_id" ref="party_green_valley"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_sunrise" model="res.users">
+        <field name="name">Sunrise Orchards (team)</field>
+        <field name="login">trace_sunrise</field>
+        <field name="password">trace_sunrise</field>
+        <field name="parent_id" ref="party_sunrise"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_lotus" model="res.users">
+        <field name="name">Lotus Paddy Growers (team)</field>
+        <field name="login">trace_lotus</field>
+        <field name="password">trace_lotus</field>
+        <field name="parent_id" ref="party_lotus"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_highland" model="res.users">
+        <field name="name">Highland Tea Estate (team)</field>
+        <field name="login">trace_highland</field>
+        <field name="password">trace_highland</field>
+        <field name="parent_id" ref="party_highland"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_spice" model="res.users">
+        <field name="name">Coastal Spice Gardens (team)</field>
+        <field name="login">trace_spice</field>
+        <field name="password">trace_spice</field>
+        <field name="parent_id" ref="party_spice"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_crew" model="res.users">
+        <field name="name">QuickHarvest Crew (team)</field>
+        <field name="login">trace_crew</field>
+        <field name="password">trace_crew</field>
+        <field name="parent_id" ref="party_crew"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_freshfoods" model="res.users">
+        <field name="name">FreshFoods Ltd (team)</field>
+        <field name="login">trace_freshfoods</field>
+        <field name="password">trace_freshfoods</field>
+        <field name="parent_id" ref="party_freshfoods"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_mill" model="res.users">
+        <field name="name">Golden Mill Rice (team)</field>
+        <field name="login">trace_mill</field>
+        <field name="password">trace_mill</field>
+        <field name="parent_id" ref="party_mill"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_teafactory" model="res.users">
+        <field name="name">Ceylon Tea Factory (team)</field>
+        <field name="login">trace_teafactory</field>
+        <field name="password">trace_teafactory</field>
+        <field name="parent_id" ref="party_teafactory"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_swift" model="res.users">
+        <field name="name">Swift Logistics (team)</field>
+        <field name="login">trace_swift</field>
+        <field name="password">trace_swift</field>
+        <field name="parent_id" ref="party_swift"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_coldchain" model="res.users">
+        <field name="name">ColdChain Express (team)</field>
+        <field name="login">trace_coldchain</field>
+        <field name="password">trace_coldchain</field>
+        <field name="parent_id" ref="party_coldchain"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_wholesale" model="res.users">
+        <field name="name">Island Wholesale (team)</field>
+        <field name="login">trace_wholesale</field>
+        <field name="password">trace_wholesale</field>
+        <field name="parent_id" ref="party_wholesale"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_metro" model="res.users">
+        <field name="name">Metro Distributors (team)</field>
+        <field name="login">trace_metro</field>
+        <field name="password">trace_metro</field>
+        <field name="parent_id" ref="party_metro"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_citymart" model="res.users">
+        <field name="name">CityMart (team)</field>
+        <field name="login">trace_citymart</field>
+        <field name="password">trace_citymart</field>
+        <field name="parent_id" ref="party_citymart"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_cornershop" model="res.users">
+        <field name="name">Corner Fresh Shop (team)</field>
+        <field name="login">trace_cornershop</field>
+        <field name="password">trace_cornershop</field>
+        <field name="parent_id" ref="party_cornershop"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_supersaver" model="res.users">
+        <field name="name">Super Saver (team)</field>
+        <field name="login">trace_supersaver</field>
+        <field name="password">trace_supersaver</field>
+        <field name="parent_id" ref="party_supersaver"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="product_tomato" model="trace.product">
+        <field name="name">Tomato</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_carrot" model="trace.product">
+        <field name="name">Carrot</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_paddy" model="trace.product">
+        <field name="name">Paddy</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_rice" model="trace.product">
+        <field name="name">Rice</field><field name="category">processed</field><field name="unit">kg</field>
+    </record>
+    <record id="product_sauce" model="trace.product">
+        <field name="name">Tomato Sauce</field><field name="category">processed</field><field name="unit">kg</field>
+    </record>
+    <record id="product_tealeaf" model="trace.product">
+        <field name="name">Green Tea Leaf</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_blacktea" model="trace.product">
+        <field name="name">Black Tea</field><field name="category">processed</field><field name="unit">kg</field>
+    </record>
+    <record id="product_cinnamon" model="trace.product">
+        <field name="name">Cinnamon Bark</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_cinnamon_ground" model="trace.product">
+        <field name="name">Ground Cinnamon</field><field name="category">processed</field><field name="unit">kg</field>
+    </record>
+    <!-- Batch journeys are created through the real workflows by this loader. -->
+    <function model="trace.demo.loader" name="load_demo"/>
+</odoo>
