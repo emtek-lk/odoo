@@ -1,0 +1,27 @@
+# Odoo core: never committed (CE re-fetchable, EE proprietary)
+/odoo-c/
+/odoo-e/
+/source-code/
+/backups/
+
+# Secrets / local config
+/odoo.conf
+/passwords.txt
+.env
+*.log
+
+# Data
+filestore/
+*.zip
+*.dump
+*.sql.gz
+
+# Tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.vscode/
+.idea/
+node_modules/
+.DS_Store
