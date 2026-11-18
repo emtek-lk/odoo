@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="trace_page" name="Public Trace Page">
+        <t t-call="web.frontend_layout">
+            <t t-set="no_footer" t-value="True"/>
+            <div id="wrap" class="container py-4" style="max-width: 760px;">
+                <div t-if="recalled" class="alert alert-danger" role="alert">
+                    <strong>This batch has been recalled.</strong> Please do not consume or sell it.
+                </div>
+                <h2 class="mb-1" t-out="batch.product_id.name"/>
+                <p class="text-muted">Batch <span t-out="batch.name"/></p>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div><strong>Origin:</strong> <span t-out="batch.origin_party_id.name"/><t t-if="batch.origin_party_id.trace_region">, <span t-out="batch.origin_party_id.trace_region"/></t></div>
+                        <div t-if="batch.harvest_date"><strong>Harvest date:</strong> <span t-out="batch.harvest_date"/></div>
+                        <div class="mt-2">
+                            <span t-if="intact" class="badge text-bg-success">History verified</span>
+                            <span t-else="" class="badge text-bg-danger">History could not be verified</span>
+                        </div>
+                    </div>
+                </div>
+                <h4>Journey</h4>
+                <ol class="list-group list-group-numbered">
+                    <li t-foreach="journey" t-as="step" class="list-group-item">
+                        <strong t-out="step['type']"/>
+                        <span class="text-muted"> - <span t-out="step['date']" t-options="{'widget': 'date'}"/></span>
+                        <div><span t-out="step['party']"/><t t-if="step['region']">, <span t-out="step['region']"/></t></div>
+                    </li>
+                </ol>
+            </div>
+        </t>
+    </template>
+</odoo>

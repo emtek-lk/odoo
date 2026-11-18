@@ -21,7 +21,10 @@ class TraceEvent(models.Model):
 
     batch_id = fields.Many2one('trace.batch', required=True, index=True, ondelete='restrict')
     sequence = fields.Integer(readonly=True, index=True)
-    date = fields.Datetime(required=True, default=fields.Datetime.now)
+    date = fields.Datetime(
+        required=True,
+        default=lambda self: self.env.context.get('trace_event_date') or fields.Datetime.now(),
+        help="When it happened. Imports can back-date events with the 'trace_event_date' context key.")
     event_type = fields.Selection([
         ('harvested', 'Harvested'), ('produced', 'Produced'), ('inspected', 'Inspected'),
         ('quality_check', 'Quality check'), ('stored', 'Stored'), ('packed', 'Packed'),

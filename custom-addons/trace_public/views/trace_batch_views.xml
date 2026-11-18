@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="trace_batch_view_form_public" model="ir.ui.view">
+        <field name="name">trace.batch.form.public</field>
+        <field name="model">trace.batch</field>
+        <field name="inherit_id" ref="trace_base.trace_batch_view_form"/>
+        <field name="arch" type="xml">
+            <page name="notes" position="after">
+                <page string="Public page" name="public" invisible="not id">
+                    <group>
+                        <field name="public_url" widget="url" readonly="1"/>
+                        <field name="qr_code_html" readonly="1"/>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
