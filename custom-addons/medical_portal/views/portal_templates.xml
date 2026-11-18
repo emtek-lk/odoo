@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_health_nav" name="Health navigation">
+        <div class="d-flex gap-2 mb-3">
+            <a href="/my/health" t-attf-class="btn btn-sm #{'btn-primary' if page_name == 'health_history' else 'btn-outline-primary'}">History</a>
+            <a href="/my/health/consents" t-attf-class="btn btn-sm #{'btn-primary' if page_name == 'health_consents' else 'btn-outline-primary'}">Who can see my records</a>
+            <a href="/my/health/access-log" t-attf-class="btn btn-sm #{'btn-primary' if page_name == 'health_access_log' else 'btn-outline-primary'}">Who viewed my records</a>
+        </div>
+    </template>
+
+    <template id="portal_history" name="My Health History">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container py-3">
+                <h3>My health history</h3>
+                <t t-call="medical_portal.portal_health_nav"/>
+                <p t-if="not patient" class="text-muted">No patient record is linked to your account.</p>
+                <p t-elif="not history" class="text-muted">No records yet.</p>
+                <table t-else="" class="table table-sm">
+                    <thead><tr><th>Date</th><th>Type</th><th>Summary</th><th>Institution</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="history" t-as="entry">
+                            <td><span t-out="entry['date']" t-options="{'widget': 'datetime'}"/></td>
+                            <td t-out="entry['kind']"/>
+                            <td t-out="entry['title']"/>
+                            <td t-out="entry['institution']"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_consents" name="My Consents">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container py-3">
+                <h3>Who can see my records</h3>
+                <t t-call="medical_portal.portal_health_nav"/>
+                <table class="table table-sm">
+                    <thead><tr><th>Shared with</th><th>What</th><th>From</th><th>Until</th><th>Status</th><th/></tr></thead>
+                    <tbody>
+                        <tr t-foreach="consents" t-as="consent">
+                            <td t-out="consent.grantee_name"/>
+                            <td t-out="dict(consent._fields['scope'].selection).get(consent.scope)"/>
+                            <td t-out="consent.date_from"/>
+                            <td t-out="consent.date_to or 'No expiry'"/>
+                            <td t-out="dict(consent._fields['state'].selection).get(consent.state)"/>
+                            <td>
+                                <form t-if="consent.state == 'active'" method="post" t-attf-action="/my/health/consents/#{consent.id}/revoke">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <button class="btn btn-sm btn-outline-danger">Revoke</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5 class="mt-4">Share my records</h5>
+                <form method="post" action="/my/health/consents/grant" class="row g-2">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="col-md-4">
+                        <select name="grantee" class="form-select" required="required">
+                            <option value="">Choose a doctor or institution...</option>
+                            <optgroup label="Doctors">
+                                <option t-foreach="practitioners" t-as="practitioner" t-attf-value="practitioner:#{practitioner.id}" t-out="practitioner.name"/>
+                            </optgroup>
+                            <optgroup label="Institutions">
+                                <option t-foreach="institutions" t-as="institution" t-attf-value="company:#{institution.id}" t-out="institution.name"/>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="scope" class="form-select">
+                            <option value="all">Everything</option>
+                            <option value="encounter">Visits</option>
+                            <option value="prescription">Prescriptions</option>
+                            <option value="lab">Lab results</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3"><input type="date" name="date_to" class="form-control" t-att-min="today" title="Valid until (optional)"/></div>
+                    <div class="col-md-2"><button class="btn btn-primary w-100">Share</button></div>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_access_log" name="Who viewed my records">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <div class="container py-3">
+                <h3>Who viewed my records</h3>
+                <t t-call="medical_portal.portal_health_nav"/>
+                <p t-if="not logs" class="text-muted">Nobody outside the institution that holds a record has viewed your records.</p>
+                <table t-else="" class="table table-sm">
+                    <thead><tr><th>When</th><th>Viewed by</th><th>From</th><th>Record</th></tr></thead>
+                    <tbody>
+                        <tr t-foreach="logs" t-as="log">
+                            <td><span t-out="log.create_date" t-options="{'widget': 'datetime'}"/></td>
+                            <td t-out="log.user_id.name"/>
+                            <td t-out="log.accessor_company_id.name"/>
+                            <td t-out="log.summary"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>
