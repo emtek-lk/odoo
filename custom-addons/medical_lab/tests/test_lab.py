@@ -83,3 +83,20 @@ class TestLab(TransactionCase):
 
     def test_history_includes_lab_order(self):
         self.assertEqual([h['res_model'] for h in self.patient.get_history()], ['medical.lab.order'])
+
+    def test_results_do_not_leak(self):
+        self.order.action_order()
+        tech_order = self.order.with_user(self.tech)
+        tech_order.line_ids.write({'value': '13', 'numeric_value': 13.0})
+        tech_order.action_done()
+        Result = self.env['medical.lab.result']
+        outsider_company = self.env['res.company'].create({'name': 'Other Hospital', 'medical_type': 'hospital'})
+        outsider = self.env['res.users'].create({
+            'name': 'Lab Outsider', 'login': 'lab_outsider', 'company_id': outsider_company.id,
+            'company_ids': [(6, 0, outsider_company.ids)],
+            'group_ids': [(6, 0, [self.env.ref('base.group_user').id,
+                                   self.env.ref('medical_base.group_medical_practitioner').id])]})
+        self.assertFalse(Result.with_user(outsider).search([]), "released results leaked to an outsider")
+        self.assertFalse(Result.with_user(self.other_tech).search([]), "results leaked to another lab")
+        self.assertTrue(Result.with_user(self.tech).search([]))
+        self.assertTrue(Result.with_user(self.doctor_user).search([]))

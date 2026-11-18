@@ -157,3 +157,13 @@ class TestMedicalAccess(TransactionCase):
     def test_lookup_returns_minimal_data(self):
         result = self.env['medical.patient'].with_user(self.user_b).lookup_minimal('NID-1')
         self.assertEqual(set(result), {'id', 'name', 'patient_code'})
+
+    def test_addenda_follow_encounter_access(self):
+        self.env['medical.encounter.addendum'].with_user(self.user_a).create({
+            'encounter_id': self.encounter.id, 'note': 'Late result received'})
+        Addendum = self.env['medical.encounter.addendum']
+        self.assertTrue(Addendum.with_user(self.user_a).search([]), "the owning institution sees its addenda")
+        self.assertFalse(Addendum.with_user(self.user_b).search([]), "an unrelated institution must not")
+        self.assertTrue(Addendum.with_user(self.patient_user).search([]), "the patient sees addenda of own visit")
+        self._consent()
+        self.assertTrue(Addendum.with_user(self.user_b).search([]), "consent shares them")

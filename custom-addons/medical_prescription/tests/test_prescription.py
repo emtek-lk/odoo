@@ -96,3 +96,26 @@ class TestPrescription(TransactionCase):
         history = self.patient.get_history()
         kinds = {h['res_model'] for h in history}
         self.assertEqual(kinds, {'medical.prescription', 'medical.dispense'})
+
+    def _outsider(self):
+        """A doctor at another hospital with no consent."""
+        company = self.env['res.company'].create({'name': 'Other Hospital', 'medical_type': 'hospital'})
+        return self.env['res.users'].create({
+            'name': 'Outsider', 'login': 'rx_outsider', 'company_id': company.id,
+            'company_ids': [(6, 0, company.ids)],
+            'group_ids': [(6, 0, [self.env.ref('base.group_user').id,
+                                   self.env.ref('medical_base.group_medical_practitioner').id])]})
+
+    def test_child_records_do_not_leak(self):
+        self.rx.action_issue()
+        self._dispense(4).action_done()
+        outsider = self._outsider()
+        for model in ('medical.prescription', 'medical.prescription.line', 'medical.dispense', 'medical.dispense.line'):
+            self.assertFalse(self.env[model].with_user(outsider).search([]), '%s leaked to an outsider' % model)
+        # a pharmacy the prescription was not sent to sees none of it either
+        for model in ('medical.prescription', 'medical.prescription.line', 'medical.dispense', 'medical.dispense.line'):
+            self.assertFalse(self.env[model].with_user(self.other_pharmacist).search([]), '%s leaked to another pharmacy' % model)
+        # the right parties still see them
+        for model in ('medical.prescription.line', 'medical.dispense', 'medical.dispense.line'):
+            self.assertTrue(self.env[model].with_user(self.pharmacist).search([]), model)
+        self.assertTrue(self.env['medical.prescription.line'].with_user(self.doctor_user).search([]))
