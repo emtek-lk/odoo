@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_trace_transfers" name="Transfers" parent="trace_base.menu_trace_root"
+              action="trace_transfer_action" sequence="15"/>
+</odoo>

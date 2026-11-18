@@ -196,3 +196,16 @@ class TestTrace(TransactionCase):
     def test_fully_used_batch_changes_state(self):
         self._add(self.batch, self.farm_user, 'sold', quantity_delta=-100)
         self.assertEqual(self.batch.state, 'consumed')
+
+    def test_split_off_creates_child_with_lineage(self):
+        child = self.batch._split_off(30)
+        self.assertEqual(self.batch.quantity_remaining, 70)
+        self.assertEqual(child.quantity_remaining, 30)
+        self.assertEqual(child.parent_ids, self.batch)
+        self.assertEqual(child.holder_id, self.farm)
+        self.assertEqual(child.origin_party_id, self.farm)
+        self.assertEqual(child.event_ids.event_type, 'split')
+        self.assertEqual(self.batch.event_ids.sorted('sequence')[-1].event_type, 'split')
+        self.assertTrue(self.batch.verify_chain()[0] and child.verify_chain()[0])
+        with self.assertRaises(UserError):
+            self.batch._split_off(500)

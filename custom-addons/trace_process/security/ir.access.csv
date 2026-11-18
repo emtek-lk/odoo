@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_trace_process_party,Processing: a party manages its own runs,trace.process,trace_base.group_trace_user,cru,"[('party_id', '=', user.trace_party_id.id)]"
+access_trace_process_manager,Processing: managers read every run,trace.process,trace_base.group_trace_manager,r,
+access_trace_process_input_party,Processing input: a party manages the inputs of its runs,trace.process.input,trace_base.group_trace_user,crud,"[('process_id.party_id', '=', user.trace_party_id.id)]"
+access_trace_process_input_manager,Processing input: managers read every input,trace.process.input,trace_base.group_trace_manager,r,
+access_trace_process_output_party,Processing output: a party manages the outputs of its runs,trace.process.output,trace_base.group_trace_user,crud,"[('process_id.party_id', '=', user.trace_party_id.id)]"
+access_trace_process_output_manager,Processing output: managers read every output,trace.process.output,trace_base.group_trace_manager,r,

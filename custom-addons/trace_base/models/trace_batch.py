@@ -167,6 +167,32 @@ class TraceBatch(models.Model):
             elif batch.state == 'consumed' and batch.quantity_remaining > EPSILON:
                 batch.state = 'active'
 
+    def _split_off(self, quantity):
+        """Take ``quantity`` out of this batch into a new child batch with the same origin and holder."""
+        self.ensure_one()
+        parent = self.sudo()
+        if quantity <= 0 or quantity > parent.quantity_remaining + EPSILON:
+            raise UserError(self.env._("You can only split off a quantity between 0 and the %s remaining.", parent.quantity_remaining))
+        Event = self.env['trace.event'].sudo().with_context(trace_system_event=True)
+        child = self.env['trace.batch'].sudo().with_context(trace_origin_event_type='split').create({
+            'product_id': parent.product_id.id,
+            'origin_party_id': parent.origin_party_id.id,
+            'harvester_id': parent.harvester_id.id,
+            'origin_place': parent.origin_place,
+            'plot': parent.plot,
+            'latitude': parent.latitude,
+            'longitude': parent.longitude,
+            'harvest_date': parent.harvest_date,
+            'initial_quantity': quantity,
+            'holder_id': parent.holder_id.id,
+            'parent_ids': [(6, 0, parent.ids)],
+        })
+        Event.create({
+            'batch_id': parent.id, 'event_type': 'split', 'party_id': parent.holder_id.id,
+            'quantity_delta': -quantity, 'notes': self.env._("%(qty)s split off into %(child)s", qty=quantity, child=child.name)})
+        parent._refresh_state()
+        return child
+
     def _set_holder(self, party):
         """Change custody (used by transfers). Runs privileged and shares the history with the new holder."""
         for batch in self.sudo():
