@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Institutions -->
+    <record id="company_hospital" model="res.company">
+        <field name="name">Lakeside General Hospital</field>
+        <field name="medical_type">hospital</field>
+        <field name="medical_licence">H-0001</field>
+    </record>
+    <record id="company_lab" model="res.company">
+        <field name="name">Metro Diagnostics Lab</field>
+        <field name="medical_type">lab</field>
+        <field name="medical_licence">L-0001</field>
+    </record>
+    <record id="company_pharmacy" model="res.company">
+        <field name="name">CityCare Pharmacy</field>
+        <field name="medical_type">pharmacy</field>
+        <field name="medical_licence">P-0001</field>
+    </record>
+    <record id="company_clinic" model="res.company">
+        <field name="name">Green Valley Clinic</field>
+        <field name="medical_type">clinic</field>
+        <field name="medical_licence">C-0001</field>
+    </record>
+
+    <!-- Catalogs -->
+    <record id="med_amoxicillin" model="medical.medication">
+        <field name="name">Amoxicillin</field><field name="strength">500 mg</field><field name="form">capsule</field>
+    </record>
+    <record id="med_paracetamol" model="medical.medication">
+        <field name="name">Paracetamol</field><field name="strength">500 mg</field><field name="form">tablet</field>
+    </record>
+    <record id="med_salbutamol" model="medical.medication">
+        <field name="name">Salbutamol</field><field name="strength">100 mcg</field><field name="form">other</field>
+    </record>
+    <record id="test_hemoglobin" model="medical.lab.test">
+        <field name="name">Hemoglobin</field><field name="code">HB</field><field name="unit">g/dL</field>
+        <field name="ref_min">12</field><field name="ref_max">16</field>
+    </record>
+    <record id="test_crp" model="medical.lab.test">
+        <field name="name">C-Reactive Protein</field><field name="code">CRP</field><field name="unit">mg/L</field>
+        <field name="ref_min">0</field><field name="ref_max">5</field>
+    </record>
+
+    <!-- Staff -->
+    <record id="user_med_manager" model="res.users">
+        <field name="name">Maya Fernando</field>
+        <field name="login">med_manager</field>
+        <field name="password">med_manager</field>
+        <field name="company_id" ref="company_hospital"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_hospital')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('medical_base.group_medical_manager')])]"/>
+    </record>
+    <record id="user_med_doctor1" model="res.users">
+        <field name="name">Dr. Anil Perera</field>
+        <field name="login">med_doctor1</field>
+        <field name="password">med_doctor1</field>
+        <field name="company_id" ref="company_hospital"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_hospital')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('medical_base.group_medical_practitioner')])]"/>
+    </record>
+    <record id="user_med_doctor2" model="res.users">
+        <field name="name">Dr. Sara Fernando</field>
+        <field name="login">med_doctor2</field>
+        <field name="password">med_doctor2</field>
+        <field name="company_id" ref="company_clinic"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_clinic')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('medical_base.group_medical_practitioner')])]"/>
+    </record>
+    <record id="user_med_pharmacist" model="res.users">
+        <field name="name">Nimal Silva</field>
+        <field name="login">med_pharmacist</field>
+        <field name="password">med_pharmacist</field>
+        <field name="company_id" ref="company_pharmacy"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_pharmacy')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('medical_prescription.group_medical_pharmacist')])]"/>
+    </record>
+    <record id="user_med_lab" model="res.users">
+        <field name="name">Ishara Wickrama</field>
+        <field name="login">med_lab</field>
+        <field name="password">med_lab</field>
+        <field name="company_id" ref="company_lab"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_lab')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('medical_lab.group_medical_lab_tech')])]"/>
+    </record>
+
+    <record id="practitioner_doctor1" model="medical.practitioner">
+        <field name="name">Dr. Anil Perera</field>
+        <field name="specialty">General Medicine</field>
+        <field name="licence_no">SLMC-1001</field>
+        <field name="user_id" ref="user_med_doctor1"/>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital')])]"/>
+    </record>
+    <record id="practitioner_doctor2" model="medical.practitioner">
+        <field name="name">Dr. Sara Fernando</field>
+        <field name="specialty">Family Medicine</field>
+        <field name="licence_no">SLMC-1002</field>
+        <field name="user_id" ref="user_med_doctor2"/>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_clinic')])]"/>
+    </record>
+
+    <!-- Patients: the portal login of a patient shares the patient's contact -->
+    <record id="partner_kasun" model="res.partner"><field name="name">Kasun Jayasinghe</field></record>
+    <record id="partner_dilini" model="res.partner"><field name="name">Dilini Wickramasinghe</field></record>
+
+    <record id="patient_kasun" model="medical.patient">
+        <field name="partner_id" ref="partner_kasun"/>
+        <field name="national_id">900000001V</field>
+        <field name="birth_date">1990-04-12</field>
+        <field name="sex">male</field>
+        <field name="blood_group">o+</field>
+        <field name="allergies">Penicillin</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital')])]"/>
+    </record>
+    <record id="patient_dilini" model="medical.patient">
+        <field name="partner_id" ref="partner_dilini"/>
+        <field name="national_id">900000002V</field>
+        <field name="birth_date">1985-09-03</field>
+        <field name="sex">female</field>
+        <field name="blood_group">a+</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital')])]"/>
+    </record>
+    <record id="patient_tharindu" model="medical.patient">
+        <field name="name">Tharindu Bandara</field>
+        <field name="national_id">900000003V</field>
+        <field name="birth_date">2001-01-20</field>
+        <field name="sex">male</field>
+        <field name="chronic_conditions">Asthma</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_clinic')])]"/>
+    </record>
+
+    <!-- Patient logins (each shares the contact of its patient) -->
+    <record id="user_med_patient1" model="res.users">
+        <field name="name">Kasun Jayasinghe</field>
+        <field name="login">med_patient1</field>
+        <field name="password">med_patient1</field>
+        <field name="partner_id" ref="partner_kasun"/>
+        <field name="company_id" ref="company_hospital"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_hospital')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_portal'), ref('medical_base.group_medical_patient')])]"/>
+    </record>
+    <record id="user_med_patient2" model="res.users">
+        <field name="name">Dilini Wickramasinghe</field>
+        <field name="login">med_patient2</field>
+        <field name="password">med_patient2</field>
+        <field name="partner_id" ref="partner_dilini"/>
+        <field name="company_id" ref="company_hospital"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_hospital')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_portal'), ref('medical_base.group_medical_patient')])]"/>
+    </record>
+
+    <!-- Kasun's history across three institutions -->
+    <record id="encounter_kasun_cough" model="medical.encounter">
+        <field name="patient_id" ref="patient_kasun"/>
+        <field name="practitioner_id" ref="practitioner_doctor1"/>
+        <field name="company_id" ref="company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Persistent cough for two weeks</field>
+        <field name="diagnosis">Suspected chest infection</field>
+        <field name="state">done</field>
+    </record>
+
+    <record id="lab_order_kasun" model="medical.lab.order">
+        <field name="patient_id" ref="patient_kasun"/>
+        <field name="practitioner_id" ref="practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_kasun_cough"/>
+        <field name="company_id" ref="company_hospital"/>
+        <field name="lab_company_id" ref="company_lab"/>
+        <field name="state">done</field>
+    </record>
+    <record id="lab_result_kasun_hb" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_kasun"/>
+        <field name="test_id" ref="test_hemoglobin"/>
+        <field name="value">13.4</field>
+        <field name="numeric_value">13.4</field>
+    </record>
+    <record id="lab_result_kasun_crp" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_kasun"/>
+        <field name="test_id" ref="test_crp"/>
+        <field name="value">18</field>
+        <field name="numeric_value">18</field>
+    </record>
+
+    <record id="prescription_kasun" model="medical.prescription">
+        <field name="patient_id" ref="patient_kasun"/>
+        <field name="practitioner_id" ref="practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_kasun_cough"/>
+        <field name="company_id" ref="company_hospital"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy"/>
+        <field name="state">partial</field>
+    </record>
+    <record id="prescription_kasun_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_kasun"/>
+        <field name="medication_id" ref="med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">15</field>
+    </record>
+    <record id="prescription_kasun_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_kasun"/>
+        <field name="medication_id" ref="med_salbutamol"/>
+        <field name="dosage">2 puffs when needed</field>
+        <field name="quantity">1</field>
+    </record>
+    <record id="dispense_kasun" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_kasun"/>
+        <field name="company_id" ref="company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_kasun_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_kasun"/>
+        <field name="prescription_line_id" ref="prescription_kasun_line1"/>
+        <field name="quantity">15</field>
+    </record>
+
+    <!-- Dilini: hospital only -->
+    <record id="encounter_dilini_checkup" model="medical.encounter">
+        <field name="patient_id" ref="patient_dilini"/>
+        <field name="practitioner_id" ref="practitioner_doctor1"/>
+        <field name="company_id" ref="company_hospital"/>
+        <field name="encounter_type">followup</field>
+        <field name="complaint">Annual check-up</field>
+        <field name="diagnosis">Healthy</field>
+        <field name="state">done</field>
+    </record>
+
+    <!-- Tharindu: clinic only -->
+    <record id="encounter_tharindu_asthma" model="medical.encounter">
+        <field name="patient_id" ref="patient_tharindu"/>
+        <field name="practitioner_id" ref="practitioner_doctor2"/>
+        <field name="company_id" ref="company_clinic"/>
+        <field name="complaint">Wheezing at night</field>
+        <field name="diagnosis">Asthma review</field>
+        <field name="state">done</field>
+    </record>
+
+    <!-- Consent: Kasun lets the clinic doctor read his history -->
+    <record id="consent_kasun_doctor2" model="medical.consent">
+        <field name="patient_id" ref="patient_kasun"/>
+        <field name="practitioner_id" ref="practitioner_doctor2"/>
+        <field name="scope">all</field>
+        <field name="method">portal</field>
+    </record>
+</odoo>
