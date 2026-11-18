@@ -1,0 +1,2070 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="company_hospital2" model="res.company">
+        <field name="name">Harbor City Hospital</field>
+        <field name="medical_type">hospital</field>
+        <field name="medical_licence">H-0002</field>
+    </record>
+    <record id="company_pharmacy2" model="res.company">
+        <field name="name">QuickMeds Pharmacy</field>
+        <field name="medical_type">pharmacy</field>
+        <field name="medical_licence">P-0002</field>
+    </record>
+    <record id="company_lab2" model="res.company">
+        <field name="name">Northside Diagnostics</field>
+        <field name="medical_type">lab</field>
+        <field name="medical_licence">L-0002</field>
+    </record>
+    <record id="med_metformin" model="medical.medication">
+        <field name="name">Metformin</field>
+        <field name="strength">500 mg</field>
+        <field name="form">tablet</field>
+    </record>
+    <record id="med_amlodipine" model="medical.medication">
+        <field name="name">Amlodipine</field>
+        <field name="strength">5 mg</field>
+        <field name="form">tablet</field>
+    </record>
+    <record id="med_losartan" model="medical.medication">
+        <field name="name">Losartan</field>
+        <field name="strength">50 mg</field>
+        <field name="form">tablet</field>
+    </record>
+    <record id="med_atorvastatin" model="medical.medication">
+        <field name="name">Atorvastatin</field>
+        <field name="strength">20 mg</field>
+        <field name="form">tablet</field>
+    </record>
+    <record id="med_omeprazole" model="medical.medication">
+        <field name="name">Omeprazole</field>
+        <field name="strength">20 mg</field>
+        <field name="form">capsule</field>
+    </record>
+    <record id="med_cetirizine" model="medical.medication">
+        <field name="name">Cetirizine</field>
+        <field name="strength">10 mg</field>
+        <field name="form">tablet</field>
+    </record>
+    <record id="med_prednisolone" model="medical.medication">
+        <field name="name">Prednisolone</field>
+        <field name="strength">5 mg</field>
+        <field name="form">tablet</field>
+    </record>
+    <record id="med_levothyroxine" model="medical.medication">
+        <field name="name">Levothyroxine</field>
+        <field name="strength">50 mcg</field>
+        <field name="form">tablet</field>
+    </record>
+    <record id="med_ibuprofen" model="medical.medication">
+        <field name="name">Ibuprofen</field>
+        <field name="strength">400 mg</field>
+        <field name="form">tablet</field>
+    </record>
+    <record id="med_ors" model="medical.medication">
+        <field name="name">Oral Rehydration Salts</field>
+        <field name="strength">1 sachet</field>
+        <field name="form">other</field>
+    </record>
+    <record id="test_wbc" model="medical.lab.test">
+        <field name="name">White Cell Count</field>
+        <field name="code">WBC</field>
+        <field name="unit">10^3/uL</field>
+        <field name="ref_min">4.0</field>
+        <field name="ref_max">11.0</field>
+    </record>
+    <record id="test_glucose" model="medical.lab.test">
+        <field name="name">Fasting Glucose</field>
+        <field name="code">FBS</field>
+        <field name="unit">mg/dL</field>
+        <field name="ref_min">70</field>
+        <field name="ref_max">100</field>
+    </record>
+    <record id="test_cholesterol" model="medical.lab.test">
+        <field name="name">Total Cholesterol</field>
+        <field name="code">CHOL</field>
+        <field name="unit">mg/dL</field>
+        <field name="ref_min">0</field>
+        <field name="ref_max">200</field>
+    </record>
+    <record id="test_creatinine" model="medical.lab.test">
+        <field name="name">Creatinine</field>
+        <field name="code">CREA</field>
+        <field name="unit">mg/dL</field>
+        <field name="ref_min">0.6</field>
+        <field name="ref_max">1.3</field>
+    </record>
+    <record id="test_alt" model="medical.lab.test">
+        <field name="name">ALT</field>
+        <field name="code">ALT</field>
+        <field name="unit">U/L</field>
+        <field name="ref_min">7</field>
+        <field name="ref_max">56</field>
+    </record>
+    <record id="test_tsh" model="medical.lab.test">
+        <field name="name">TSH</field>
+        <field name="code">TSH</field>
+        <field name="unit">mIU/L</field>
+        <field name="ref_min">0.4</field>
+        <field name="ref_max">4.0</field>
+    </record>
+    <record id="test_hba1c" model="medical.lab.test">
+        <field name="name">HbA1c</field>
+        <field name="code">HBA1C</field>
+        <field name="unit">%</field>
+        <field name="ref_min">4.0</field>
+        <field name="ref_max">5.6</field>
+    </record>
+    <record id="practitioner_doctor3" model="medical.practitioner">
+        <field name="name">Dr. Ruwan Jayawardena</field>
+        <field name="specialty">Cardiology</field>
+        <field name="licence_no">SLMC-1003</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="practitioner_doctor4" model="medical.practitioner">
+        <field name="name">Dr. Chamari Gunasekara</field>
+        <field name="specialty">Endocrinology</field>
+        <field name="licence_no">SLMC-1004</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="user_med_doctor5" model="res.users">
+        <field name="name">Dr. Priyantha Rathnayake</field>
+        <field name="login">med_doctor5</field>
+        <field name="password">med_doctor5</field>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('medical_base.group_medical_practitioner')])]"/>
+    </record>
+    <record id="practitioner_doctor5" model="medical.practitioner">
+        <field name="name">Dr. Priyantha Rathnayake</field>
+        <field name="specialty">General Medicine</field>
+        <field name="licence_no">SLMC-1005</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+        <field name="user_id" ref="user_med_doctor5"/>
+    </record>
+    <record id="practitioner_doctor6" model="medical.practitioner">
+        <field name="name">Dr. Anoma Dissanayake</field>
+        <field name="specialty">Paediatrics</field>
+        <field name="licence_no">SLMC-1006</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="practitioner_doctor7" model="medical.practitioner">
+        <field name="name">Dr. Kamal Seneviratne</field>
+        <field name="specialty">Internal Medicine</field>
+        <field name="licence_no">SLMC-1007</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="practitioner_doctor8" model="medical.practitioner">
+        <field name="name">Dr. Lakshmi Herath</field>
+        <field name="specialty">Family Medicine</field>
+        <field name="licence_no">SLMC-1008</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_clinic')])]"/>
+    </record>
+    <record id="user_med_pharmacist2" model="res.users">
+        <field name="name">Sunil Gamage</field>
+        <field name="login">med_pharmacist2</field>
+        <field name="password">med_pharmacist2</field>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_pharmacy2')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('medical_prescription.group_medical_pharmacist')])]"/>
+    </record>
+    <record id="user_med_lab2" model="res.users">
+        <field name="name">Thilini Abeysekara</field>
+        <field name="login">med_lab2</field>
+        <field name="password">med_lab2</field>
+        <field name="company_id" ref="company_lab2"/>
+        <field name="company_ids" eval="[(6, 0, [ref('company_lab2')])]"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('medical_lab.group_medical_lab_tech')])]"/>
+    </record>
+    <record id="patient_p01" model="medical.patient">
+        <field name="name">Nadeesha Perera</field>
+        <field name="national_id">675359181V</field>
+        <field name="birth_date">1967-11-21</field>
+        <field name="sex">male</field>
+        <field name="blood_group">o+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p02" model="medical.patient">
+        <field name="name">Chathura Fernando</field>
+        <field name="national_id">691452650V</field>
+        <field name="birth_date">1969-07-14</field>
+        <field name="sex">male</field>
+        <field name="blood_group">a-</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="patient_p03" model="medical.patient">
+        <field name="name">Sachini Silva</field>
+        <field name="national_id">646354266V</field>
+        <field name="birth_date">1964-08-19</field>
+        <field name="sex">female</field>
+        <field name="blood_group">o+</field>
+        <field name="allergies">Penicillin</field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_clinic')])]"/>
+    </record>
+    <record id="patient_p04" model="medical.patient">
+        <field name="name">Pasindu Jayawardena</field>
+        <field name="national_id">744352358V</field>
+        <field name="birth_date">1974-06-21</field>
+        <field name="sex">female</field>
+        <field name="blood_group">o+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions">Type 2 diabetes</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p05" model="medical.patient">
+        <field name="name">Hiruni Gunasekara</field>
+        <field name="national_id">022555655V</field>
+        <field name="birth_date">2002-11-17</field>
+        <field name="sex">female</field>
+        <field name="blood_group">o+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="patient_p06" model="medical.patient">
+        <field name="name">Dinesh Wijesinghe</field>
+        <field name="national_id">584461866V</field>
+        <field name="birth_date">1958-10-08</field>
+        <field name="sex">male</field>
+        <field name="blood_group">b-</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p07" model="medical.patient">
+        <field name="name">Tharushi Rathnayake</field>
+        <field name="national_id">602405116V</field>
+        <field name="birth_date">1960-04-09</field>
+        <field name="sex">female</field>
+        <field name="blood_group">ab+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="patient_p08" model="medical.patient">
+        <field name="name">Malith Dissanayake</field>
+        <field name="national_id">803740548V</field>
+        <field name="birth_date">1980-10-04</field>
+        <field name="sex">male</field>
+        <field name="blood_group">ab+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_clinic')])]"/>
+    </record>
+    <record id="patient_p09" model="medical.patient">
+        <field name="name">Nethmi Herath</field>
+        <field name="national_id">774685377V</field>
+        <field name="birth_date">1977-10-08</field>
+        <field name="sex">male</field>
+        <field name="blood_group">a+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions">Hypertension</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p10" model="medical.patient">
+        <field name="name">Isuru Gamage</field>
+        <field name="national_id">865687522V</field>
+        <field name="birth_date">1986-03-23</field>
+        <field name="sex">female</field>
+        <field name="blood_group">o-</field>
+        <field name="allergies">Dust</field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="patient_p11" model="medical.patient">
+        <field name="name">Amaya Karunaratne</field>
+        <field name="national_id">675593645V</field>
+        <field name="birth_date">1967-09-27</field>
+        <field name="sex">female</field>
+        <field name="blood_group">b+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p12" model="medical.patient">
+        <field name="name">Sameera Samarasinghe</field>
+        <field name="national_id">697807778V</field>
+        <field name="birth_date">1969-12-28</field>
+        <field name="sex">male</field>
+        <field name="blood_group">b+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="patient_p13" model="medical.patient">
+        <field name="name">Kavindi Abeysekara</field>
+        <field name="national_id">026784405V</field>
+        <field name="birth_date">2002-04-04</field>
+        <field name="sex">male</field>
+        <field name="blood_group">b-</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions">Asthma</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_clinic')])]"/>
+    </record>
+    <record id="patient_p14" model="medical.patient">
+        <field name="name">Lahiru Senanayake</field>
+        <field name="national_id">033891143V</field>
+        <field name="birth_date">2003-03-27</field>
+        <field name="sex">male</field>
+        <field name="blood_group">a-</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p15" model="medical.patient">
+        <field name="name">Oshadi Ranasinghe</field>
+        <field name="national_id">851033551V</field>
+        <field name="birth_date">1985-11-26</field>
+        <field name="sex">female</field>
+        <field name="blood_group">o+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="patient_p16" model="medical.patient">
+        <field name="name">Buddhika Perera</field>
+        <field name="national_id">069897771V</field>
+        <field name="birth_date">2006-12-02</field>
+        <field name="sex">male</field>
+        <field name="blood_group">a-</field>
+        <field name="allergies">Shellfish</field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p17" model="medical.patient">
+        <field name="name">Madhavi Fernando</field>
+        <field name="national_id">066595653V</field>
+        <field name="birth_date">2006-01-03</field>
+        <field name="sex">male</field>
+        <field name="blood_group">a-</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="patient_p18" model="medical.patient">
+        <field name="name">Rashmika Silva</field>
+        <field name="national_id">905316970V</field>
+        <field name="birth_date">1990-11-03</field>
+        <field name="sex">female</field>
+        <field name="blood_group">a+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions">Hypothyroidism</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_clinic')])]"/>
+    </record>
+    <record id="patient_p19" model="medical.patient">
+        <field name="name">Yasiru Jayawardena</field>
+        <field name="national_id">514261499V</field>
+        <field name="birth_date">1951-04-17</field>
+        <field name="sex">male</field>
+        <field name="blood_group">b+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p20" model="medical.patient">
+        <field name="name">Udari Gunasekara</field>
+        <field name="national_id">519846599V</field>
+        <field name="birth_date">1951-03-10</field>
+        <field name="sex">male</field>
+        <field name="blood_group">o+</field>
+        <field name="allergies">Aspirin</field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="patient_p21" model="medical.patient">
+        <field name="name">Gayan Wijesinghe</field>
+        <field name="national_id">832832451V</field>
+        <field name="birth_date">1983-07-04</field>
+        <field name="sex">male</field>
+        <field name="blood_group">b-</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p22" model="medical.patient">
+        <field name="name">Piumi Rathnayake</field>
+        <field name="national_id">734798266V</field>
+        <field name="birth_date">1973-02-10</field>
+        <field name="sex">male</field>
+        <field name="blood_group">o+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions">Dyslipidemia</field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="patient_p23" model="medical.patient">
+        <field name="name">Harsha Dissanayake</field>
+        <field name="national_id">652388190V</field>
+        <field name="birth_date">1965-08-16</field>
+        <field name="sex">male</field>
+        <field name="blood_group">b+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_clinic')])]"/>
+    </record>
+    <record id="patient_p24" model="medical.patient">
+        <field name="name">Sewwandi Herath</field>
+        <field name="national_id">726222576V</field>
+        <field name="birth_date">1972-07-28</field>
+        <field name="sex">male</field>
+        <field name="blood_group">ab+</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('medical_demo.company_hospital')])]"/>
+    </record>
+    <record id="patient_p25" model="medical.patient">
+        <field name="name">Janith Gamage</field>
+        <field name="national_id">747115153V</field>
+        <field name="birth_date">1974-10-10</field>
+        <field name="sex">male</field>
+        <field name="blood_group">a-</field>
+        <field name="allergies"></field>
+        <field name="chronic_conditions"></field>
+        <field name="institution_ids" eval="[(6, 0, [ref('company_hospital2')])]"/>
+    </record>
+    <record id="encounter_001" model="medical.encounter">
+        <field name="patient_id" ref="patient_p01"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">followup</field>
+        <field name="complaint">Fever and body ache</field>
+        <field name="diagnosis">Viral fever</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_001" model="medical.prescription">
+        <field name="patient_id" ref="patient_p01"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_001"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_001_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_001"/>
+        <field name="medication_id" ref="medical_demo.med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="lab_order_001" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p01"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_001"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_001_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_001"/>
+        <field name="test_id" ref="medical_demo.test_crp"/>
+        <field name="value">7.4</field>
+        <field name="numeric_value">7.4</field>
+    </record>
+    <record id="lab_order_001_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_001"/>
+        <field name="test_id" ref="test_wbc"/>
+        <field name="value">9.2</field>
+        <field name="numeric_value">9.2</field>
+    </record>
+    <record id="encounter_002" model="medical.encounter">
+        <field name="patient_id" ref="patient_p01"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Itchy eyes and sneezing</field>
+        <field name="diagnosis">Allergic rhinitis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=120)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_002" model="medical.prescription">
+        <field name="patient_id" ref="patient_p01"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="encounter_id" ref="encounter_002"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=120)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_002_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_002"/>
+        <field name="medication_id" ref="med_cetirizine"/>
+        <field name="dosage">1 tablet at night for 7 days</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="dispense_002" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_002"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_002_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_002"/>
+        <field name="prescription_line_id" ref="prescription_002_line1"/>
+        <field name="quantity">10</field>
+    </record>
+    <record id="encounter_003" model="medical.encounter">
+        <field name="patient_id" ref="patient_p02"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">procedure</field>
+        <field name="complaint">High blood pressure reading</field>
+        <field name="diagnosis">Hypertension</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=149)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_003" model="medical.prescription">
+        <field name="patient_id" ref="patient_p02"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_003"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">partial</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=149)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_003_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_003"/>
+        <field name="medication_id" ref="med_amlodipine"/>
+        <field name="dosage">1 tablet every morning</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="prescription_003_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_003"/>
+        <field name="medication_id" ref="med_losartan"/>
+        <field name="dosage">1 tablet every morning</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="dispense_003" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_003"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_003_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_003"/>
+        <field name="prescription_line_id" ref="prescription_003_line1"/>
+        <field name="quantity">7</field>
+    </record>
+    <record id="lab_order_002" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p02"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_003"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=149)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_002_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_002"/>
+        <field name="test_id" ref="test_creatinine"/>
+        <field name="value">1.0</field>
+        <field name="numeric_value">1.0</field>
+    </record>
+    <record id="encounter_004" model="medical.encounter">
+        <field name="patient_id" ref="patient_p02"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">followup</field>
+        <field name="complaint">Tiredness and weight gain</field>
+        <field name="diagnosis">Hypothyroidism</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=194)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_004" model="medical.prescription">
+        <field name="patient_id" ref="patient_p02"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="encounter_id" ref="encounter_004"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=194)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_004_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_004"/>
+        <field name="medication_id" ref="med_levothyroxine"/>
+        <field name="dosage">1 tablet on an empty stomach</field>
+        <field name="quantity">30</field>
+    </record>
+    <record id="lab_order_003" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p02"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="encounter_id" ref="encounter_004"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=194)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_003_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_003"/>
+        <field name="test_id" ref="test_tsh"/>
+        <field name="value">1.6</field>
+        <field name="numeric_value">1.6</field>
+    </record>
+    <record id="encounter_005" model="medical.encounter">
+        <field name="patient_id" ref="patient_p03"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Heartburn after meals</field>
+        <field name="diagnosis">Gastritis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=157)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_005" model="medical.prescription">
+        <field name="patient_id" ref="patient_p03"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="encounter_id" ref="encounter_005"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=157)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_005_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_005"/>
+        <field name="medication_id" ref="med_omeprazole"/>
+        <field name="dosage">1 capsule before breakfast</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="dispense_005" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_005"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_005_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_005"/>
+        <field name="prescription_line_id" ref="prescription_005_line1"/>
+        <field name="quantity">10</field>
+    </record>
+    <record id="encounter_006" model="medical.encounter">
+        <field name="patient_id" ref="patient_p03"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Joint pain in knees</field>
+        <field name="diagnosis">Osteoarthritis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=12)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_006" model="medical.prescription">
+        <field name="patient_id" ref="patient_p03"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+        <field name="encounter_id" ref="encounter_006"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=12)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_006_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_006"/>
+        <field name="medication_id" ref="med_ibuprofen"/>
+        <field name="dosage">1 tablet after meals when needed</field>
+        <field name="quantity">30</field>
+    </record>
+    <record id="prescription_006_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_006"/>
+        <field name="medication_id" ref="medical_demo.med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="dispense_006" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_006"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_006_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_006"/>
+        <field name="prescription_line_id" ref="prescription_006_line1"/>
+        <field name="quantity">30</field>
+    </record>
+    <record id="dispense_006_line2" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_006"/>
+        <field name="prescription_line_id" ref="prescription_006_line2"/>
+        <field name="quantity">14</field>
+    </record>
+    <record id="lab_order_004" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p03"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+        <field name="encounter_id" ref="encounter_006"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=12)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_004_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_004"/>
+        <field name="test_id" ref="medical_demo.test_crp"/>
+        <field name="value">2.2</field>
+        <field name="numeric_value">2.2</field>
+    </record>
+    <record id="encounter_007" model="medical.encounter">
+        <field name="patient_id" ref="patient_p04"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Night-time wheezing</field>
+        <field name="diagnosis">Asthma</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=155)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_007" model="medical.prescription">
+        <field name="patient_id" ref="patient_p04"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_007"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=155)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_007_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_007"/>
+        <field name="medication_id" ref="medical_demo.med_salbutamol"/>
+        <field name="dosage">2 puffs when needed</field>
+        <field name="quantity">28</field>
+    </record>
+    <record id="prescription_007_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_007"/>
+        <field name="medication_id" ref="med_prednisolone"/>
+        <field name="dosage">2 tablets daily for 5 days</field>
+        <field name="quantity">15</field>
+    </record>
+    <record id="encounter_008" model="medical.encounter">
+        <field name="patient_id" ref="patient_p04"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">procedure</field>
+        <field name="complaint">High cholesterol on screening</field>
+        <field name="diagnosis">Dyslipidemia</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=74)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_008" model="medical.prescription">
+        <field name="patient_id" ref="patient_p04"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="encounter_id" ref="encounter_008"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=74)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_008_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_008"/>
+        <field name="medication_id" ref="med_atorvastatin"/>
+        <field name="dosage">1 tablet at night</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="dispense_008" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_008"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_008_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_008"/>
+        <field name="prescription_line_id" ref="prescription_008_line1"/>
+        <field name="quantity">10</field>
+    </record>
+    <record id="lab_order_005" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p04"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="encounter_id" ref="encounter_008"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">ordered</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=74)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_005_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_005"/>
+        <field name="test_id" ref="test_cholesterol"/>
+    </record>
+    <record id="lab_order_005_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_005"/>
+        <field name="test_id" ref="test_alt"/>
+    </record>
+    <record id="encounter_009" model="medical.encounter">
+        <field name="patient_id" ref="patient_p05"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">procedure</field>
+        <field name="complaint">Joint pain in knees</field>
+        <field name="diagnosis">Osteoarthritis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_009" model="medical.prescription">
+        <field name="patient_id" ref="patient_p05"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_009"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">partial</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_009_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_009"/>
+        <field name="medication_id" ref="med_ibuprofen"/>
+        <field name="dosage">1 tablet after meals when needed</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="prescription_009_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_009"/>
+        <field name="medication_id" ref="medical_demo.med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">28</field>
+    </record>
+    <record id="dispense_009" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_009"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_009_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_009"/>
+        <field name="prescription_line_id" ref="prescription_009_line1"/>
+        <field name="quantity">5</field>
+    </record>
+    <record id="lab_order_006" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p05"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_009"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_006_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_006"/>
+        <field name="test_id" ref="medical_demo.test_crp"/>
+        <field name="value">7.0</field>
+        <field name="numeric_value">7.0</field>
+    </record>
+    <record id="encounter_010" model="medical.encounter">
+        <field name="patient_id" ref="patient_p05"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">procedure</field>
+        <field name="complaint">High blood pressure reading</field>
+        <field name="diagnosis">Hypertension</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=76)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_010" model="medical.prescription">
+        <field name="patient_id" ref="patient_p05"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="encounter_id" ref="encounter_010"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=76)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_010_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_010"/>
+        <field name="medication_id" ref="med_amlodipine"/>
+        <field name="dosage">1 tablet every morning</field>
+        <field name="quantity">15</field>
+    </record>
+    <record id="prescription_010_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_010"/>
+        <field name="medication_id" ref="med_losartan"/>
+        <field name="dosage">1 tablet every morning</field>
+        <field name="quantity">20</field>
+    </record>
+    <record id="lab_order_007" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p05"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="encounter_id" ref="encounter_010"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=76)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_007_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_007"/>
+        <field name="test_id" ref="test_creatinine"/>
+        <field name="value">0.7</field>
+        <field name="numeric_value">0.7</field>
+    </record>
+    <record id="encounter_011" model="medical.encounter">
+        <field name="patient_id" ref="patient_p06"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">High cholesterol on screening</field>
+        <field name="diagnosis">Dyslipidemia</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=36)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_011" model="medical.prescription">
+        <field name="patient_id" ref="patient_p06"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="encounter_id" ref="encounter_011"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=36)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_011_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_011"/>
+        <field name="medication_id" ref="med_atorvastatin"/>
+        <field name="dosage">1 tablet at night</field>
+        <field name="quantity">30</field>
+    </record>
+    <record id="dispense_011" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_011"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_011_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_011"/>
+        <field name="prescription_line_id" ref="prescription_011_line1"/>
+        <field name="quantity">30</field>
+    </record>
+    <record id="lab_order_008" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p06"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="encounter_id" ref="encounter_011"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=36)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_008_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_008"/>
+        <field name="test_id" ref="test_cholesterol"/>
+        <field name="value">229.4</field>
+        <field name="numeric_value">229.4</field>
+    </record>
+    <record id="lab_order_008_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_008"/>
+        <field name="test_id" ref="test_alt"/>
+        <field name="value">19.2</field>
+        <field name="numeric_value">19.2</field>
+    </record>
+    <record id="encounter_012" model="medical.encounter">
+        <field name="patient_id" ref="patient_p06"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Heartburn after meals</field>
+        <field name="diagnosis">Gastritis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=200)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_012" model="medical.prescription">
+        <field name="patient_id" ref="patient_p06"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_012"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=200)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_012_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_012"/>
+        <field name="medication_id" ref="med_omeprazole"/>
+        <field name="dosage">1 capsule before breakfast</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="dispense_012" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_012"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_012_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_012"/>
+        <field name="prescription_line_id" ref="prescription_012_line1"/>
+        <field name="quantity">14</field>
+    </record>
+    <record id="encounter_013" model="medical.encounter">
+        <field name="patient_id" ref="patient_p07"/>
+        <field name="practitioner_id" ref="practitioner_doctor5"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">followup</field>
+        <field name="complaint">Cough and sore throat</field>
+        <field name="diagnosis">Upper respiratory infection</field>
+        <field name="state">draft</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=176)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="encounter_014" model="medical.encounter">
+        <field name="patient_id" ref="patient_p07"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Night-time wheezing</field>
+        <field name="diagnosis">Asthma</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=91)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_013" model="medical.prescription">
+        <field name="patient_id" ref="patient_p07"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_014"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=91)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_013_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_013"/>
+        <field name="medication_id" ref="medical_demo.med_salbutamol"/>
+        <field name="dosage">2 puffs when needed</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="prescription_013_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_013"/>
+        <field name="medication_id" ref="med_prednisolone"/>
+        <field name="dosage">2 tablets daily for 5 days</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="encounter_015" model="medical.encounter">
+        <field name="patient_id" ref="patient_p08"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="encounter_type">procedure</field>
+        <field name="complaint">Increased thirst and fatigue</field>
+        <field name="diagnosis">Type 2 diabetes</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=112)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_014" model="medical.prescription">
+        <field name="patient_id" ref="patient_p08"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+        <field name="encounter_id" ref="encounter_015"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=112)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_014_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_014"/>
+        <field name="medication_id" ref="med_metformin"/>
+        <field name="dosage">1 tablet twice a day with meals</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="dispense_014" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_014"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_014_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_014"/>
+        <field name="prescription_line_id" ref="prescription_014_line1"/>
+        <field name="quantity">14</field>
+    </record>
+    <record id="lab_order_009" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p08"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+        <field name="encounter_id" ref="encounter_015"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=112)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_009_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_009"/>
+        <field name="test_id" ref="test_glucose"/>
+        <field name="value">61.0</field>
+        <field name="numeric_value">61.0</field>
+    </record>
+    <record id="lab_order_009_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_009"/>
+        <field name="test_id" ref="test_hba1c"/>
+        <field name="value">5.2</field>
+        <field name="numeric_value">5.2</field>
+    </record>
+    <record id="encounter_016" model="medical.encounter">
+        <field name="patient_id" ref="patient_p08"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="encounter_type">followup</field>
+        <field name="complaint">Routine check-up</field>
+        <field name="diagnosis">Healthy</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=76)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_010" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p08"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="encounter_id" ref="encounter_016"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">ordered</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=76)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_010_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_010"/>
+        <field name="test_id" ref="medical_demo.test_hemoglobin"/>
+    </record>
+    <record id="lab_order_010_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_010"/>
+        <field name="test_id" ref="test_cholesterol"/>
+    </record>
+    <record id="encounter_017" model="medical.encounter">
+        <field name="patient_id" ref="patient_p09"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Night-time wheezing</field>
+        <field name="diagnosis">Asthma</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=191)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_015" model="medical.prescription">
+        <field name="patient_id" ref="patient_p09"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="encounter_id" ref="encounter_017"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">partial</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=191)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_015_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_015"/>
+        <field name="medication_id" ref="medical_demo.med_salbutamol"/>
+        <field name="dosage">2 puffs when needed</field>
+        <field name="quantity">20</field>
+    </record>
+    <record id="prescription_015_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_015"/>
+        <field name="medication_id" ref="med_prednisolone"/>
+        <field name="dosage">2 tablets daily for 5 days</field>
+        <field name="quantity">30</field>
+    </record>
+    <record id="dispense_015" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_015"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_015_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_015"/>
+        <field name="prescription_line_id" ref="prescription_015_line1"/>
+        <field name="quantity">10</field>
+    </record>
+    <record id="encounter_018" model="medical.encounter">
+        <field name="patient_id" ref="patient_p09"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">High cholesterol on screening</field>
+        <field name="diagnosis">Dyslipidemia</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=190)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_016" model="medical.prescription">
+        <field name="patient_id" ref="patient_p09"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_018"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=190)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_016_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_016"/>
+        <field name="medication_id" ref="med_atorvastatin"/>
+        <field name="dosage">1 tablet at night</field>
+        <field name="quantity">20</field>
+    </record>
+    <record id="lab_order_011" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p09"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_018"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=190)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_011_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_011"/>
+        <field name="test_id" ref="test_cholesterol"/>
+        <field name="value">149.4</field>
+        <field name="numeric_value">149.4</field>
+    </record>
+    <record id="lab_order_011_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_011"/>
+        <field name="test_id" ref="test_alt"/>
+        <field name="value">45.1</field>
+        <field name="numeric_value">45.1</field>
+    </record>
+    <record id="encounter_019" model="medical.encounter">
+        <field name="patient_id" ref="patient_p10"/>
+        <field name="practitioner_id" ref="practitioner_doctor5"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Routine check-up</field>
+        <field name="diagnosis">Healthy</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=145)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_012" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p10"/>
+        <field name="practitioner_id" ref="practitioner_doctor5"/>
+        <field name="encounter_id" ref="encounter_019"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=145)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_012_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_012"/>
+        <field name="test_id" ref="medical_demo.test_hemoglobin"/>
+        <field name="value">14.6</field>
+        <field name="numeric_value">14.6</field>
+    </record>
+    <record id="lab_order_012_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_012"/>
+        <field name="test_id" ref="test_cholesterol"/>
+        <field name="value">105.4</field>
+        <field name="numeric_value">105.4</field>
+    </record>
+    <record id="encounter_020" model="medical.encounter">
+        <field name="patient_id" ref="patient_p10"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Cough and sore throat</field>
+        <field name="diagnosis">Upper respiratory infection</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=194)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_017" model="medical.prescription">
+        <field name="patient_id" ref="patient_p10"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_020"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=194)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_017_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_017"/>
+        <field name="medication_id" ref="medical_demo.med_amoxicillin"/>
+        <field name="dosage">1 capsule three times a day for 7 days</field>
+        <field name="quantity">30</field>
+    </record>
+    <record id="prescription_017_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_017"/>
+        <field name="medication_id" ref="medical_demo.med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">15</field>
+    </record>
+    <record id="dispense_017" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_017"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_017_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_017"/>
+        <field name="prescription_line_id" ref="prescription_017_line1"/>
+        <field name="quantity">30</field>
+    </record>
+    <record id="dispense_017_line2" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_017"/>
+        <field name="prescription_line_id" ref="prescription_017_line2"/>
+        <field name="quantity">15</field>
+    </record>
+    <record id="lab_order_013" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p10"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_020"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=194)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_013_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_013"/>
+        <field name="test_id" ref="medical_demo.test_crp"/>
+        <field name="value">2.6</field>
+        <field name="numeric_value">2.6</field>
+    </record>
+    <record id="encounter_021" model="medical.encounter">
+        <field name="patient_id" ref="patient_p11"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">procedure</field>
+        <field name="complaint">Loose stools for two days</field>
+        <field name="diagnosis">Gastroenteritis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=96)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_018" model="medical.prescription">
+        <field name="patient_id" ref="patient_p11"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="encounter_id" ref="encounter_021"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=96)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_018_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_018"/>
+        <field name="medication_id" ref="med_ors"/>
+        <field name="dosage">1 sachet in 1 litre of water, sip through the day</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="dispense_018" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_018"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_018_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_018"/>
+        <field name="prescription_line_id" ref="prescription_018_line1"/>
+        <field name="quantity">14</field>
+    </record>
+    <record id="lab_order_014" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p11"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="encounter_id" ref="encounter_021"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=96)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_014_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_014"/>
+        <field name="test_id" ref="test_wbc"/>
+        <field name="value">8.5</field>
+        <field name="numeric_value">8.5</field>
+    </record>
+    <record id="encounter_022" model="medical.encounter">
+        <field name="patient_id" ref="patient_p11"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Increased thirst and fatigue</field>
+        <field name="diagnosis">Type 2 diabetes</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=122)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_019" model="medical.prescription">
+        <field name="patient_id" ref="patient_p11"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="encounter_id" ref="encounter_022"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=122)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_019_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_019"/>
+        <field name="medication_id" ref="med_metformin"/>
+        <field name="dosage">1 tablet twice a day with meals</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="lab_order_015" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p11"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="encounter_id" ref="encounter_022"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">ordered</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=122)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_015_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_015"/>
+        <field name="test_id" ref="test_glucose"/>
+    </record>
+    <record id="lab_order_015_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_015"/>
+        <field name="test_id" ref="test_hba1c"/>
+    </record>
+    <record id="encounter_023" model="medical.encounter">
+        <field name="patient_id" ref="patient_p12"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">followup</field>
+        <field name="complaint">Fever and body ache</field>
+        <field name="diagnosis">Viral fever</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_020" model="medical.prescription">
+        <field name="patient_id" ref="patient_p12"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="encounter_id" ref="encounter_023"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_020_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_020"/>
+        <field name="medication_id" ref="medical_demo.med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">15</field>
+    </record>
+    <record id="dispense_020" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_020"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_020_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_020"/>
+        <field name="prescription_line_id" ref="prescription_020_line1"/>
+        <field name="quantity">15</field>
+    </record>
+    <record id="lab_order_016" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p12"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="encounter_id" ref="encounter_023"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_016_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_016"/>
+        <field name="test_id" ref="medical_demo.test_crp"/>
+        <field name="value">3.5</field>
+        <field name="numeric_value">3.5</field>
+    </record>
+    <record id="lab_order_016_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_016"/>
+        <field name="test_id" ref="test_wbc"/>
+        <field name="value">5.8</field>
+        <field name="numeric_value">5.8</field>
+    </record>
+    <record id="encounter_024" model="medical.encounter">
+        <field name="patient_id" ref="patient_p13"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Increased thirst and fatigue</field>
+        <field name="diagnosis">Type 2 diabetes</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=68)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_021" model="medical.prescription">
+        <field name="patient_id" ref="patient_p13"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="encounter_id" ref="encounter_024"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">partial</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=68)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_021_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_021"/>
+        <field name="medication_id" ref="med_metformin"/>
+        <field name="dosage">1 tablet twice a day with meals</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="dispense_021" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_021"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_021_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_021"/>
+        <field name="prescription_line_id" ref="prescription_021_line1"/>
+        <field name="quantity">7</field>
+    </record>
+    <record id="lab_order_017" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p13"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="encounter_id" ref="encounter_024"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=68)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_017_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_017"/>
+        <field name="test_id" ref="test_glucose"/>
+        <field name="value">76.1</field>
+        <field name="numeric_value">76.1</field>
+    </record>
+    <record id="lab_order_017_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_017"/>
+        <field name="test_id" ref="test_hba1c"/>
+        <field name="value">4.3</field>
+        <field name="numeric_value">4.3</field>
+    </record>
+    <record id="encounter_025" model="medical.encounter">
+        <field name="patient_id" ref="patient_p14"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">procedure</field>
+        <field name="complaint">Itchy eyes and sneezing</field>
+        <field name="diagnosis">Allergic rhinitis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=122)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_022" model="medical.prescription">
+        <field name="patient_id" ref="patient_p14"/>
+        <field name="practitioner_id" ref="practitioner_doctor3"/>
+        <field name="encounter_id" ref="encounter_025"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=122)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_022_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_022"/>
+        <field name="medication_id" ref="med_cetirizine"/>
+        <field name="dosage">1 tablet at night for 7 days</field>
+        <field name="quantity">30</field>
+    </record>
+    <record id="encounter_026" model="medical.encounter">
+        <field name="patient_id" ref="patient_p15"/>
+        <field name="practitioner_id" ref="practitioner_doctor7"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Tiredness and weight gain</field>
+        <field name="diagnosis">Hypothyroidism</field>
+        <field name="state">draft</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=132)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="encounter_027" model="medical.encounter">
+        <field name="patient_id" ref="patient_p16"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Joint pain in knees</field>
+        <field name="diagnosis">Osteoarthritis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=169)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_023" model="medical.prescription">
+        <field name="patient_id" ref="patient_p16"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_027"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=169)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_023_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_023"/>
+        <field name="medication_id" ref="med_ibuprofen"/>
+        <field name="dosage">1 tablet after meals when needed</field>
+        <field name="quantity">30</field>
+    </record>
+    <record id="prescription_023_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_023"/>
+        <field name="medication_id" ref="medical_demo.med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">15</field>
+    </record>
+    <record id="dispense_023" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_023"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_023_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_023"/>
+        <field name="prescription_line_id" ref="prescription_023_line1"/>
+        <field name="quantity">30</field>
+    </record>
+    <record id="dispense_023_line2" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_023"/>
+        <field name="prescription_line_id" ref="prescription_023_line2"/>
+        <field name="quantity">15</field>
+    </record>
+    <record id="lab_order_018" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p16"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_027"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=169)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_018_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_018"/>
+        <field name="test_id" ref="medical_demo.test_crp"/>
+        <field name="value">2.2</field>
+        <field name="numeric_value">2.2</field>
+    </record>
+    <record id="encounter_028" model="medical.encounter">
+        <field name="patient_id" ref="patient_p17"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">procedure</field>
+        <field name="complaint">Fever and body ache</field>
+        <field name="diagnosis">Viral fever</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_024" model="medical.prescription">
+        <field name="patient_id" ref="patient_p17"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_028"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_024_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_024"/>
+        <field name="medication_id" ref="medical_demo.med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">20</field>
+    </record>
+    <record id="dispense_024" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_024"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_024_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_024"/>
+        <field name="prescription_line_id" ref="prescription_024_line1"/>
+        <field name="quantity">20</field>
+    </record>
+    <record id="lab_order_019" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p17"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_028"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_019_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_019"/>
+        <field name="test_id" ref="medical_demo.test_crp"/>
+        <field name="value">3.5</field>
+        <field name="numeric_value">3.5</field>
+    </record>
+    <record id="lab_order_019_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_019"/>
+        <field name="test_id" ref="test_wbc"/>
+        <field name="value">5.8</field>
+        <field name="numeric_value">5.8</field>
+    </record>
+    <record id="encounter_029" model="medical.encounter">
+        <field name="patient_id" ref="patient_p18"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">High blood pressure reading</field>
+        <field name="diagnosis">Hypertension</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=50)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_025" model="medical.prescription">
+        <field name="patient_id" ref="patient_p18"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+        <field name="encounter_id" ref="encounter_029"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=50)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_025_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_025"/>
+        <field name="medication_id" ref="med_amlodipine"/>
+        <field name="dosage">1 tablet every morning</field>
+        <field name="quantity">15</field>
+    </record>
+    <record id="prescription_025_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_025"/>
+        <field name="medication_id" ref="med_losartan"/>
+        <field name="dosage">1 tablet every morning</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="lab_order_020" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p18"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+        <field name="encounter_id" ref="encounter_029"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">ordered</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=50)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_020_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_020"/>
+        <field name="test_id" ref="test_creatinine"/>
+    </record>
+    <record id="encounter_030" model="medical.encounter">
+        <field name="patient_id" ref="patient_p19"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">followup</field>
+        <field name="complaint">Heartburn after meals</field>
+        <field name="diagnosis">Gastritis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=19)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_026" model="medical.prescription">
+        <field name="patient_id" ref="patient_p19"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+        <field name="encounter_id" ref="encounter_030"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=19)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_026_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_026"/>
+        <field name="medication_id" ref="med_omeprazole"/>
+        <field name="dosage">1 capsule before breakfast</field>
+        <field name="quantity">30</field>
+    </record>
+    <record id="dispense_026" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_026"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_026_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_026"/>
+        <field name="prescription_line_id" ref="prescription_026_line1"/>
+        <field name="quantity">30</field>
+    </record>
+    <record id="encounter_031" model="medical.encounter">
+        <field name="patient_id" ref="patient_p20"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Night-time wheezing</field>
+        <field name="diagnosis">Asthma</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=138)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_027" model="medical.prescription">
+        <field name="patient_id" ref="patient_p20"/>
+        <field name="practitioner_id" ref="practitioner_doctor6"/>
+        <field name="encounter_id" ref="encounter_031"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">partial</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=138)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_027_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_027"/>
+        <field name="medication_id" ref="medical_demo.med_salbutamol"/>
+        <field name="dosage">2 puffs when needed</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="prescription_027_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_027"/>
+        <field name="medication_id" ref="med_prednisolone"/>
+        <field name="dosage">2 tablets daily for 5 days</field>
+        <field name="quantity">30</field>
+    </record>
+    <record id="dispense_027" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_027"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_027_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_027"/>
+        <field name="prescription_line_id" ref="prescription_027_line1"/>
+        <field name="quantity">7</field>
+    </record>
+    <record id="encounter_032" model="medical.encounter">
+        <field name="patient_id" ref="patient_p21"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">followup</field>
+        <field name="complaint">Joint pain in knees</field>
+        <field name="diagnosis">Osteoarthritis</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=54)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_028" model="medical.prescription">
+        <field name="patient_id" ref="patient_p21"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="encounter_id" ref="encounter_032"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=54)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_028_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_028"/>
+        <field name="medication_id" ref="med_ibuprofen"/>
+        <field name="dosage">1 tablet after meals when needed</field>
+        <field name="quantity">14</field>
+    </record>
+    <record id="prescription_028_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_028"/>
+        <field name="medication_id" ref="medical_demo.med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">28</field>
+    </record>
+    <record id="lab_order_021" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p21"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="encounter_id" ref="encounter_032"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=54)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_021_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_021"/>
+        <field name="test_id" ref="medical_demo.test_crp"/>
+        <field name="value">2.3</field>
+        <field name="numeric_value">2.3</field>
+    </record>
+    <record id="encounter_033" model="medical.encounter">
+        <field name="patient_id" ref="patient_p22"/>
+        <field name="practitioner_id" ref="practitioner_doctor5"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">High cholesterol on screening</field>
+        <field name="diagnosis">Dyslipidemia</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=123)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_029" model="medical.prescription">
+        <field name="patient_id" ref="patient_p22"/>
+        <field name="practitioner_id" ref="practitioner_doctor5"/>
+        <field name="encounter_id" ref="encounter_033"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=123)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_029_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_029"/>
+        <field name="medication_id" ref="med_atorvastatin"/>
+        <field name="dosage">1 tablet at night</field>
+        <field name="quantity">15</field>
+    </record>
+    <record id="dispense_029" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_029"/>
+        <field name="company_id" ref="company_pharmacy2"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_029_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_029"/>
+        <field name="prescription_line_id" ref="prescription_029_line1"/>
+        <field name="quantity">15</field>
+    </record>
+    <record id="lab_order_022" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p22"/>
+        <field name="practitioner_id" ref="practitioner_doctor5"/>
+        <field name="encounter_id" ref="encounter_033"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=123)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_022_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_022"/>
+        <field name="test_id" ref="test_cholesterol"/>
+        <field name="value">134.7</field>
+        <field name="numeric_value">134.7</field>
+    </record>
+    <record id="lab_order_022_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_022"/>
+        <field name="test_id" ref="test_alt"/>
+        <field name="value">68.2</field>
+        <field name="numeric_value">68.2</field>
+    </record>
+    <record id="encounter_034" model="medical.encounter">
+        <field name="patient_id" ref="patient_p23"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Cough and sore throat</field>
+        <field name="diagnosis">Upper respiratory infection</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=76)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_030" model="medical.prescription">
+        <field name="patient_id" ref="patient_p23"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="encounter_id" ref="encounter_034"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=76)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_030_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_030"/>
+        <field name="medication_id" ref="medical_demo.med_amoxicillin"/>
+        <field name="dosage">1 capsule three times a day for 7 days</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="prescription_030_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_030"/>
+        <field name="medication_id" ref="medical_demo.med_paracetamol"/>
+        <field name="dosage">1 tablet three times a day for 5 days</field>
+        <field name="quantity">15</field>
+    </record>
+    <record id="dispense_030" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_030"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_030_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_030"/>
+        <field name="prescription_line_id" ref="prescription_030_line1"/>
+        <field name="quantity">10</field>
+    </record>
+    <record id="dispense_030_line2" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_030"/>
+        <field name="prescription_line_id" ref="prescription_030_line2"/>
+        <field name="quantity">15</field>
+    </record>
+    <record id="lab_order_023" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p23"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor2"/>
+        <field name="encounter_id" ref="encounter_034"/>
+        <field name="company_id" ref="medical_demo.company_clinic"/>
+        <field name="lab_company_id" ref="company_lab2"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=76)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_023_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_023"/>
+        <field name="test_id" ref="medical_demo.test_crp"/>
+        <field name="value">6.5</field>
+        <field name="numeric_value">6.5</field>
+    </record>
+    <record id="encounter_035" model="medical.encounter">
+        <field name="patient_id" ref="patient_p24"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="encounter_type">consultation</field>
+        <field name="complaint">Increased thirst and fatigue</field>
+        <field name="diagnosis">Type 2 diabetes</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=189)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_031" model="medical.prescription">
+        <field name="patient_id" ref="patient_p24"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="encounter_id" ref="encounter_035"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="pharmacy_company_id" ref="company_pharmacy2"/>
+        <field name="state">issued</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=189)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_031_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_031"/>
+        <field name="medication_id" ref="med_metformin"/>
+        <field name="dosage">1 tablet twice a day with meals</field>
+        <field name="quantity">28</field>
+    </record>
+    <record id="lab_order_024" model="medical.lab.order">
+        <field name="patient_id" ref="patient_p24"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+        <field name="encounter_id" ref="encounter_035"/>
+        <field name="company_id" ref="medical_demo.company_hospital"/>
+        <field name="lab_company_id" ref="medical_demo.company_lab"/>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=189)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="lab_order_024_res1" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_024"/>
+        <field name="test_id" ref="test_glucose"/>
+        <field name="value">87.0</field>
+        <field name="numeric_value">87.0</field>
+    </record>
+    <record id="lab_order_024_res2" model="medical.lab.result">
+        <field name="order_id" ref="lab_order_024"/>
+        <field name="test_id" ref="test_hba1c"/>
+        <field name="value">4.3</field>
+        <field name="numeric_value">4.3</field>
+    </record>
+    <record id="encounter_036" model="medical.encounter">
+        <field name="patient_id" ref="patient_p25"/>
+        <field name="practitioner_id" ref="practitioner_doctor5"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="encounter_type">procedure</field>
+        <field name="complaint">Night-time wheezing</field>
+        <field name="diagnosis">Asthma</field>
+        <field name="state">done</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=73)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_032" model="medical.prescription">
+        <field name="patient_id" ref="patient_p25"/>
+        <field name="practitioner_id" ref="practitioner_doctor5"/>
+        <field name="encounter_id" ref="encounter_036"/>
+        <field name="company_id" ref="company_hospital2"/>
+        <field name="pharmacy_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">dispensed</field>
+        <field name="date" eval="(DateTime.now() - timedelta(days=73)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="prescription_032_line1" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_032"/>
+        <field name="medication_id" ref="medical_demo.med_salbutamol"/>
+        <field name="dosage">2 puffs when needed</field>
+        <field name="quantity">28</field>
+    </record>
+    <record id="prescription_032_line2" model="medical.prescription.line">
+        <field name="prescription_id" ref="prescription_032"/>
+        <field name="medication_id" ref="med_prednisolone"/>
+        <field name="dosage">2 tablets daily for 5 days</field>
+        <field name="quantity">10</field>
+    </record>
+    <record id="dispense_032" model="medical.dispense">
+        <field name="prescription_id" ref="prescription_032"/>
+        <field name="company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="state">done</field>
+    </record>
+    <record id="dispense_032_line1" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_032"/>
+        <field name="prescription_line_id" ref="prescription_032_line1"/>
+        <field name="quantity">28</field>
+    </record>
+    <record id="dispense_032_line2" model="medical.dispense.line">
+        <field name="dispense_id" ref="dispense_032"/>
+        <field name="prescription_line_id" ref="prescription_032_line2"/>
+        <field name="quantity">10</field>
+    </record>
+    <record id="consent_extra_01" model="medical.consent">
+        <field name="patient_id" ref="patient_p01"/>
+        <field name="scope">all</field>
+        <field name="state">active</field>
+        <field name="method">portal</field>
+        <field name="date_from" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="practitioner_id" ref="practitioner_doctor8"/>
+    </record>
+    <record id="consent_extra_02" model="medical.consent">
+        <field name="patient_id" ref="patient_p02"/>
+        <field name="scope">encounter</field>
+        <field name="state">active</field>
+        <field name="method">portal</field>
+        <field name="date_from" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="grantee_company_id" ref="company_hospital2"/>
+    </record>
+    <record id="consent_extra_03" model="medical.consent">
+        <field name="patient_id" ref="patient_p04"/>
+        <field name="scope">lab</field>
+        <field name="state">active</field>
+        <field name="method">portal</field>
+        <field name="date_from" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="grantee_company_id" ref="medical_demo.company_lab"/>
+        <field name="date_to" eval="(DateTime.now() + timedelta(days=60)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="consent_extra_04" model="medical.consent">
+        <field name="patient_id" ref="patient_p05"/>
+        <field name="scope">prescription</field>
+        <field name="state">active</field>
+        <field name="method">portal</field>
+        <field name="date_from" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="practitioner_id" ref="medical_demo.practitioner_doctor1"/>
+    </record>
+    <record id="consent_extra_05" model="medical.consent">
+        <field name="patient_id" ref="patient_p07"/>
+        <field name="scope">prescription</field>
+        <field name="state">expired</field>
+        <field name="method">portal</field>
+        <field name="date_from" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="grantee_company_id" ref="medical_demo.company_pharmacy"/>
+        <field name="date_to" eval="(DateTime.now() + timedelta(days=-20)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="consent_extra_06" model="medical.consent">
+        <field name="patient_id" ref="patient_p09"/>
+        <field name="scope">all</field>
+        <field name="state">revoked</field>
+        <field name="method">portal</field>
+        <field name="date_from" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="practitioner_id" ref="practitioner_doctor4"/>
+    </record>
+    <record id="consent_extra_07" model="medical.consent">
+        <field name="patient_id" ref="patient_p13"/>
+        <field name="scope">all</field>
+        <field name="state">active</field>
+        <field name="method">portal</field>
+        <field name="date_from" eval="(DateTime.now() - timedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="grantee_company_id" ref="medical_demo.company_clinic"/>
+        <field name="date_to" eval="(DateTime.now() + timedelta(days=120)).strftime('%Y-%m-%d')"/>
+    </record>
+</odoo>

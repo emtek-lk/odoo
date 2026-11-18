@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Lets the main administrator open every demo institution from the company switcher. Only adds links. -->
+    <record id="base.user_admin" model="res.users">
+        <field name="company_ids" eval="[
+            (4, ref('medical_demo.company_hospital')), (4, ref('company_hospital2')),
+            (4, ref('medical_demo.company_clinic')), (4, ref('medical_demo.company_lab')),
+            (4, ref('company_lab2')), (4, ref('medical_demo.company_pharmacy')),
+            (4, ref('company_pharmacy2'))]"/>
+    </record>
+</odoo>
