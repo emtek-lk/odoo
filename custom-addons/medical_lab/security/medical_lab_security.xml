@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_medical_lab_tech" model="res.groups">
+        <field name="name">Lab Technician</field>
+        <field name="sequence">40</field>
+        <field name="comment">Reads lab orders sent to their laboratory and enters the results.</field>
+        <field name="privilege_id" ref="medical_base.res_groups_privilege_medical_role"/>
+    </record>
+    <record id="seq_medical_lab_order" model="ir.sequence">
+        <field name="name">Lab Order</field>
+        <field name="code">medical.lab.order</field>
+        <field name="prefix">LAB/</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

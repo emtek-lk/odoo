@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="medical_base.menu_medical_root" model="ir.ui.menu">
+        <field name="group_ids" eval="[(4, ref('group_medical_lab_tech'))]"/>
+    </record>
+    <menuitem id="menu_medical_lab_orders" name="Lab Orders" parent="medical_base.menu_medical_root"
+              action="medical_lab_order_action" sequence="35"/>
+    <menuitem id="menu_medical_lab_tests" name="Lab Tests" parent="medical_base.menu_medical_config"
+              action="medical_lab_test_action" sequence="30"/>
+</odoo>

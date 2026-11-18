@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="medical_lab_test_view_list" model="ir.ui.view">
+        <field name="name">medical.lab.test.list</field>
+        <field name="model">medical.lab.test</field>
+        <field name="arch" type="xml">
+            <list string="Lab Tests" editable="bottom">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="unit"/>
+                <field name="ref_min"/>
+                <field name="ref_max"/>
+            </list>
+        </field>
+    </record>
+    <record id="medical_lab_test_action" model="ir.actions.act_window">
+        <field name="name">Lab Tests</field>
+        <field name="res_model">medical.lab.test</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="medical_lab_order_view_list" model="ir.ui.view">
+        <field name="name">medical.lab.order.list</field>
+        <field name="model">medical.lab.order</field>
+        <field name="arch" type="xml">
+            <list string="Lab Orders">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="patient_id"/>
+                <field name="company_name" string="Ordered At"/>
+                <field name="lab_name" string="Laboratory"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'"
+                       decoration-info="state == 'ordered'" decoration-muted="state in ('draft', 'cancel')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="medical_lab_order_view_form" model="ir.ui.view">
+        <field name="name">medical.lab.order.form</field>
+        <field name="model">medical.lab.order</field>
+        <field name="arch" type="xml">
+            <form string="Lab Order">
+                <header>
+                    <button name="action_order" string="Send to Lab" type="object" class="btn-primary"
+                            invisible="state != 'draft'" groups="medical_base.group_medical_practitioner"/>
+                    <button name="action_done" string="Release Results" type="object" class="btn-primary"
+                            invisible="state != 'ordered'" groups="medical_lab.group_medical_lab_tech"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="state not in ('draft', 'ordered')" groups="medical_base.group_medical_practitioner"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,ordered,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="patient_id" options="{'no_create': True}" readonly="state != 'draft'"/>
+                            <field name="practitioner_id" options="{'no_create': True}" readonly="state != 'draft'"/>
+                            <field name="encounter_id" options="{'no_create': True}" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="company_name" string="Ordered At"/>
+                            <field name="lab_company_id" options="{'no_create': True}" readonly="state not in ('draft', 'ordered')"/>
+                        </group>
+                    </group>
+                    <field name="line_ids">
+                        <list editable="bottom">
+                            <field name="test_id" options="{'no_create': True}"/>
+                            <field name="value"/>
+                            <field name="numeric_value"/>
+                            <field name="unit"/>
+                            <field name="flag" widget="badge" decoration-danger="flag in ('low', 'high')" decoration-success="flag == 'normal'"/>
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </list>
+                    </field>
+                    <field name="notes" placeholder="Clinical notes for the lab"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="medical_lab_order_action" model="ir.actions.act_window">
+        <field name="name">Lab Orders</field>
+        <field name="res_model">medical.lab.order</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
