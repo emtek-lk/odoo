@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="user_lms_instructor3" model="res.users">
+        <field name="name">Prof. Ravindra Wijeratne</field><field name="login">lms_instructor3</field><field name="password">lms_instructor3</field>
+        <field name="email">lms_instructor3@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_instructor')])]"/>
+    </record>
+    <record id="user_lms_instructor4" model="res.users">
+        <field name="name">Dr. Sanjeewa Amarasinghe</field><field name="login">lms_instructor4</field><field name="password">lms_instructor4</field>
+        <field name="email">lms_instructor4@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_instructor')])]"/>
+    </record>
+    <record id="user_lms_instructor5" model="res.users">
+        <field name="name">Ms. Dilrukshi Pathirana</field><field name="login">lms_instructor5</field><field name="password">lms_instructor5</field>
+        <field name="email">lms_instructor5@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_instructor')])]"/>
+    </record>
+    <record id="user_lms_instructor6" model="res.users">
+        <field name="name">Mr. Chaminda Kodikara</field><field name="login">lms_instructor6</field><field name="password">lms_instructor6</field>
+        <field name="email">lms_instructor6@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_instructor')])]"/>
+    </record>
+    <record id="user_lms_student5" model="res.users">
+        <field name="name">Aruni De Silva</field><field name="login">lms_student5</field><field name="password">lms_student5</field>
+        <field name="email">lms_student5@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student6" model="res.users">
+        <field name="name">Bhanuka Rodrigo</field><field name="login">lms_student6</field><field name="password">lms_student6</field>
+        <field name="email">lms_student6@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student7" model="res.users">
+        <field name="name">Chamod Hettiarachchi</field><field name="login">lms_student7</field><field name="password">lms_student7</field>
+        <field name="email">lms_student7@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student8" model="res.users">
+        <field name="name">Damith Liyanage</field><field name="login">lms_student8</field><field name="password">lms_student8</field>
+        <field name="email">lms_student8@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student9" model="res.users">
+        <field name="name">Eranga Mendis</field><field name="login">lms_student9</field><field name="password">lms_student9</field>
+        <field name="email">lms_student9@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student10" model="res.users">
+        <field name="name">Fathima Jayatilleke</field><field name="login">lms_student10</field><field name="password">lms_student10</field>
+        <field name="email">lms_student10@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student11" model="res.users">
+        <field name="name">Gihan Weerasinghe</field><field name="login">lms_student11</field><field name="password">lms_student11</field>
+        <field name="email">lms_student11@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student12" model="res.users">
+        <field name="name">Hasini Peiris</field><field name="login">lms_student12</field><field name="password">lms_student12</field>
+        <field name="email">lms_student12@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student13" model="res.users">
+        <field name="name">Imesh De Silva</field><field name="login">lms_student13</field><field name="password">lms_student13</field>
+        <field name="email">lms_student13@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student14" model="res.users">
+        <field name="name">Jayani Rodrigo</field><field name="login">lms_student14</field><field name="password">lms_student14</field>
+        <field name="email">lms_student14@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student15" model="res.users">
+        <field name="name">Kavishka Hettiarachchi</field><field name="login">lms_student15</field><field name="password">lms_student15</field>
+        <field name="email">lms_student15@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student16" model="res.users">
+        <field name="name">Lakmal Liyanage</field><field name="login">lms_student16</field><field name="password">lms_student16</field>
+        <field name="email">lms_student16@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student17" model="res.users">
+        <field name="name">Mihiri Mendis</field><field name="login">lms_student17</field><field name="password">lms_student17</field>
+        <field name="email">lms_student17@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student18" model="res.users">
+        <field name="name">Nuwan Jayatilleke</field><field name="login">lms_student18</field><field name="password">lms_student18</field>
+        <field name="email">lms_student18@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student19" model="res.users">
+        <field name="name">Ovini Weerasinghe</field><field name="login">lms_student19</field><field name="password">lms_student19</field>
+        <field name="email">lms_student19@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student20" model="res.users">
+        <field name="name">Pramod Peiris</field><field name="login">lms_student20</field><field name="password">lms_student20</field>
+        <field name="email">lms_student20@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student21" model="res.users">
+        <field name="name">Queenie De Silva</field><field name="login">lms_student21</field><field name="password">lms_student21</field>
+        <field name="email">lms_student21@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student22" model="res.users">
+        <field name="name">Ruvini Rodrigo</field><field name="login">lms_student22</field><field name="password">lms_student22</field>
+        <field name="email">lms_student22@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student23" model="res.users">
+        <field name="name">Sajith Hettiarachchi</field><field name="login">lms_student23</field><field name="password">lms_student23</field>
+        <field name="email">lms_student23@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student24" model="res.users">
+        <field name="name">Tharaka Liyanage</field><field name="login">lms_student24</field><field name="password">lms_student24</field>
+        <field name="email">lms_student24@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student25" model="res.users">
+        <field name="name">Upeksha Mendis</field><field name="login">lms_student25</field><field name="password">lms_student25</field>
+        <field name="email">lms_student25@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student26" model="res.users">
+        <field name="name">Vishmi Jayatilleke</field><field name="login">lms_student26</field><field name="password">lms_student26</field>
+        <field name="email">lms_student26@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student27" model="res.users">
+        <field name="name">Wasana Weerasinghe</field><field name="login">lms_student27</field><field name="password">lms_student27</field>
+        <field name="email">lms_student27@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student28" model="res.users">
+        <field name="name">Yohan Peiris</field><field name="login">lms_student28</field><field name="password">lms_student28</field>
+        <field name="email">lms_student28@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student29" model="res.users">
+        <field name="name">Zainab De Silva</field><field name="login">lms_student29</field><field name="password">lms_student29</field>
+        <field name="email">lms_student29@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="user_lms_student30" model="res.users">
+        <field name="name">Ashen Rodrigo</field><field name="login">lms_student30</field><field name="password">lms_student30</field>
+        <field name="email">lms_student30@example.com</field>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('lms_institute.group_lms_student')])]"/>
+    </record>
+    <record id="course_x01" model="lms.course">
+        <field name="name">Web Development Basics</field><field name="code">CS102</field>
+        <field name="instructor_id" ref="lms_institute.user_lms_instructor_1"/><field name="state">published</field>
+        <field name="fee">18000</field><field name="max_students">30</field>
+        <field name="description"><![CDATA[<p>Web Development Basics: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x01_1" model="lms.lesson">
+        <field name="course_id" ref="course_x01"/><field name="sequence">10</field>
+        <field name="name">How the web works</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x01_2" model="lms.lesson">
+        <field name="course_id" ref="course_x01"/><field name="sequence">20</field>
+        <field name="name">HTML structure</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x01_3" model="lms.lesson">
+        <field name="course_id" ref="course_x01"/><field name="sequence">30</field>
+        <field name="name">Styling with CSS</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x01_4" model="lms.lesson">
+        <field name="course_id" ref="course_x01"/><field name="sequence">40</field>
+        <field name="name">JavaScript essentials</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x01_5" model="lms.lesson">
+        <field name="course_id" ref="course_x01"/><field name="sequence">50</field>
+        <field name="name">Building a landing page</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="course_x02" model="lms.course">
+        <field name="name">Databases and SQL</field><field name="code">CS201</field>
+        <field name="instructor_id" ref="lms_institute.user_lms_instructor_2"/><field name="state">published</field>
+        <field name="fee">20000</field><field name="max_students">40</field>
+        <field name="description"><![CDATA[<p>Databases and SQL: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x02_1" model="lms.lesson">
+        <field name="course_id" ref="course_x02"/><field name="sequence">10</field>
+        <field name="name">Relational thinking</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x02_2" model="lms.lesson">
+        <field name="course_id" ref="course_x02"/><field name="sequence">20</field>
+        <field name="name">Writing queries</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x02_3" model="lms.lesson">
+        <field name="course_id" ref="course_x02"/><field name="sequence">30</field>
+        <field name="name">Joins and aggregates</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x02_4" model="lms.lesson">
+        <field name="course_id" ref="course_x02"/><field name="sequence">40</field>
+        <field name="name">Designing schemas</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="lesson_x02_5" model="lms.lesson">
+        <field name="course_id" ref="course_x02"/><field name="sequence">50</field>
+        <field name="name">Indexes and performance</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="course_x03" model="lms.course">
+        <field name="name">Machine Learning Foundations</field><field name="code">CS301</field>
+        <field name="instructor_id" ref="user_lms_instructor3"/><field name="state">published</field>
+        <field name="fee">26000</field><field name="max_students">0</field>
+        <field name="description"><![CDATA[<p>Machine Learning Foundations: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x03_1" model="lms.lesson">
+        <field name="course_id" ref="course_x03"/><field name="sequence">10</field>
+        <field name="name">Supervised learning</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x03_2" model="lms.lesson">
+        <field name="course_id" ref="course_x03"/><field name="sequence">20</field>
+        <field name="name">Training and testing</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x03_3" model="lms.lesson">
+        <field name="course_id" ref="course_x03"/><field name="sequence">30</field>
+        <field name="name">Feature engineering</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x03_4" model="lms.lesson">
+        <field name="course_id" ref="course_x03"/><field name="sequence">40</field>
+        <field name="name">Evaluating models</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="course_x04" model="lms.course">
+        <field name="name">Introduction to Cyber Security</field><field name="code">CS150</field>
+        <field name="instructor_id" ref="user_lms_instructor4"/><field name="state">draft</field>
+        <field name="fee">17000</field><field name="max_students">40</field>
+        <field name="description"><![CDATA[<p>Introduction to Cyber Security: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x04_1" model="lms.lesson">
+        <field name="course_id" ref="course_x04"/><field name="sequence">10</field>
+        <field name="name">Threats and attackers</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x04_2" model="lms.lesson">
+        <field name="course_id" ref="course_x04"/><field name="sequence">20</field>
+        <field name="name">Passwords and authentication</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x04_3" model="lms.lesson">
+        <field name="course_id" ref="course_x04"/><field name="sequence">30</field>
+        <field name="name">Network basics</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x04_4" model="lms.lesson">
+        <field name="course_id" ref="course_x04"/><field name="sequence">40</field>
+        <field name="name">Safe browsing habits</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="course_x05" model="lms.course">
+        <field name="name">Principles of Management</field><field name="code">BU101</field>
+        <field name="instructor_id" ref="user_lms_instructor5"/><field name="state">published</field>
+        <field name="fee">12000</field><field name="max_students">20</field>
+        <field name="description"><![CDATA[<p>Principles of Management: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x05_1" model="lms.lesson">
+        <field name="course_id" ref="course_x05"/><field name="sequence">10</field>
+        <field name="name">What managers do</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x05_2" model="lms.lesson">
+        <field name="course_id" ref="course_x05"/><field name="sequence">20</field>
+        <field name="name">Planning and goals</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x05_3" model="lms.lesson">
+        <field name="course_id" ref="course_x05"/><field name="sequence">30</field>
+        <field name="name">Leading teams</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x05_4" model="lms.lesson">
+        <field name="course_id" ref="course_x05"/><field name="sequence">40</field>
+        <field name="name">Controlling and feedback</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="course_x06" model="lms.course">
+        <field name="name">Financial Accounting</field><field name="code">BU210</field>
+        <field name="instructor_id" ref="user_lms_instructor6"/><field name="state">published</field>
+        <field name="fee">15000</field><field name="max_students">30</field>
+        <field name="description"><![CDATA[<p>Financial Accounting: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x06_1" model="lms.lesson">
+        <field name="course_id" ref="course_x06"/><field name="sequence">10</field>
+        <field name="name">The accounting equation</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x06_2" model="lms.lesson">
+        <field name="course_id" ref="course_x06"/><field name="sequence">20</field>
+        <field name="name">Recording transactions</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x06_3" model="lms.lesson">
+        <field name="course_id" ref="course_x06"/><field name="sequence">30</field>
+        <field name="name">Financial statements</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="lesson_x06_4" model="lms.lesson">
+        <field name="course_id" ref="course_x06"/><field name="sequence">40</field>
+        <field name="name">Ratio analysis</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x06_5" model="lms.lesson">
+        <field name="course_id" ref="course_x06"/><field name="sequence">50</field>
+        <field name="name">Year-end adjustments</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="course_x07" model="lms.course">
+        <field name="name">Marketing Fundamentals</field><field name="code">BU220</field>
+        <field name="instructor_id" ref="lms_institute.user_lms_instructor_1"/><field name="state">published</field>
+        <field name="fee">13000</field><field name="max_students">0</field>
+        <field name="description"><![CDATA[<p>Marketing Fundamentals: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x07_1" model="lms.lesson">
+        <field name="course_id" ref="course_x07"/><field name="sequence">10</field>
+        <field name="name">Understanding customers</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x07_2" model="lms.lesson">
+        <field name="course_id" ref="course_x07"/><field name="sequence">20</field>
+        <field name="name">Segmentation and targeting</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="lesson_x07_3" model="lms.lesson">
+        <field name="course_id" ref="course_x07"/><field name="sequence">30</field>
+        <field name="name">Pricing</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x07_4" model="lms.lesson">
+        <field name="course_id" ref="course_x07"/><field name="sequence">40</field>
+        <field name="name">Promotion channels</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="course_x08" model="lms.course">
+        <field name="name">Academic Writing</field><field name="code">EN120</field>
+        <field name="instructor_id" ref="lms_institute.user_lms_instructor_2"/><field name="state">published</field>
+        <field name="fee">9000</field><field name="max_students">3</field>
+        <field name="description"><![CDATA[<p>Academic Writing: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x08_1" model="lms.lesson">
+        <field name="course_id" ref="course_x08"/><field name="sequence">10</field>
+        <field name="name">Structuring an essay</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="lesson_x08_2" model="lms.lesson">
+        <field name="course_id" ref="course_x08"/><field name="sequence">20</field>
+        <field name="name">Citing sources</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="lesson_x08_3" model="lms.lesson">
+        <field name="course_id" ref="course_x08"/><field name="sequence">30</field>
+        <field name="name">Argument and evidence</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x08_4" model="lms.lesson">
+        <field name="course_id" ref="course_x08"/><field name="sequence">40</field>
+        <field name="name">Editing for clarity</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="course_x09" model="lms.course">
+        <field name="name">Public Speaking</field><field name="code">EN210</field>
+        <field name="instructor_id" ref="user_lms_instructor3"/><field name="state">published</field>
+        <field name="fee">9500</field><field name="max_students">0</field>
+        <field name="description"><![CDATA[<p>Public Speaking: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x09_1" model="lms.lesson">
+        <field name="course_id" ref="course_x09"/><field name="sequence">10</field>
+        <field name="name">Overcoming nerves</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x09_2" model="lms.lesson">
+        <field name="course_id" ref="course_x09"/><field name="sequence">20</field>
+        <field name="name">Structuring a talk</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x09_3" model="lms.lesson">
+        <field name="course_id" ref="course_x09"/><field name="sequence">30</field>
+        <field name="name">Using visuals</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x09_4" model="lms.lesson">
+        <field name="course_id" ref="course_x09"/><field name="sequence">40</field>
+        <field name="name">Handling questions</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="course_x10" model="lms.course">
+        <field name="name">Statistics for Beginners</field><field name="code">MA110</field>
+        <field name="instructor_id" ref="user_lms_instructor4"/><field name="state">published</field>
+        <field name="fee">11000</field><field name="max_students">25</field>
+        <field name="description"><![CDATA[<p>Statistics for Beginners: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x10_1" model="lms.lesson">
+        <field name="course_id" ref="course_x10"/><field name="sequence">10</field>
+        <field name="name">Describing data</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x10_2" model="lms.lesson">
+        <field name="course_id" ref="course_x10"/><field name="sequence">20</field>
+        <field name="name">Probability basics</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x10_3" model="lms.lesson">
+        <field name="course_id" ref="course_x10"/><field name="sequence">30</field>
+        <field name="name">Sampling</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x10_4" model="lms.lesson">
+        <field name="course_id" ref="course_x10"/><field name="sequence">40</field>
+        <field name="name">Confidence intervals</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x10_5" model="lms.lesson">
+        <field name="course_id" ref="course_x10"/><field name="sequence">50</field>
+        <field name="name">Hypothesis tests</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="course_x11" model="lms.course">
+        <field name="name">Linear Algebra</field><field name="code">MA220</field>
+        <field name="instructor_id" ref="user_lms_instructor5"/><field name="state">published</field>
+        <field name="fee">14000</field><field name="max_students">20</field>
+        <field name="description"><![CDATA[<p>Linear Algebra: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x11_1" model="lms.lesson">
+        <field name="course_id" ref="course_x11"/><field name="sequence">10</field>
+        <field name="name">Vectors and matrices</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x11_2" model="lms.lesson">
+        <field name="course_id" ref="course_x11"/><field name="sequence">20</field>
+        <field name="name">Solving linear systems</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x11_3" model="lms.lesson">
+        <field name="course_id" ref="course_x11"/><field name="sequence">30</field>
+        <field name="name">Eigenvalues</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x11_4" model="lms.lesson">
+        <field name="course_id" ref="course_x11"/><field name="sequence">40</field>
+        <field name="name">Applications</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="course_x12" model="lms.course">
+        <field name="name">Introduction to Physics</field><field name="code">SC101</field>
+        <field name="instructor_id" ref="user_lms_instructor6"/><field name="state">published</field>
+        <field name="fee">12500</field><field name="max_students">30</field>
+        <field name="description"><![CDATA[<p>Introduction to Physics: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x12_1" model="lms.lesson">
+        <field name="course_id" ref="course_x12"/><field name="sequence">10</field>
+        <field name="name">Motion and forces</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x12_2" model="lms.lesson">
+        <field name="course_id" ref="course_x12"/><field name="sequence">20</field>
+        <field name="name">Energy and work</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x12_3" model="lms.lesson">
+        <field name="course_id" ref="course_x12"/><field name="sequence">30</field>
+        <field name="name">Waves</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="lesson_x12_4" model="lms.lesson">
+        <field name="course_id" ref="course_x12"/><field name="sequence">40</field>
+        <field name="name">Electricity basics</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="course_x13" model="lms.course">
+        <field name="name">Environmental Science</field><field name="code">SC120</field>
+        <field name="instructor_id" ref="lms_institute.user_lms_instructor_1"/><field name="state">draft</field>
+        <field name="fee">10500</field><field name="max_students">0</field>
+        <field name="description"><![CDATA[<p>Environmental Science: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x13_1" model="lms.lesson">
+        <field name="course_id" ref="course_x13"/><field name="sequence">10</field>
+        <field name="name">Ecosystems</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="lesson_x13_2" model="lms.lesson">
+        <field name="course_id" ref="course_x13"/><field name="sequence">20</field>
+        <field name="name">Climate and weather</field><field name="duration_minutes">90</field>
+    </record>
+    <record id="lesson_x13_3" model="lms.lesson">
+        <field name="course_id" ref="course_x13"/><field name="sequence">30</field>
+        <field name="name">Water and soil</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x13_4" model="lms.lesson">
+        <field name="course_id" ref="course_x13"/><field name="sequence">40</field>
+        <field name="name">Sustainability</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="course_x14" model="lms.course">
+        <field name="name">Graphic Design Basics</field><field name="code">AR105</field>
+        <field name="instructor_id" ref="lms_institute.user_lms_instructor_2"/><field name="state">published</field>
+        <field name="fee">16000</field><field name="max_students">0</field>
+        <field name="description"><![CDATA[<p>Graphic Design Basics: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x14_1" model="lms.lesson">
+        <field name="course_id" ref="course_x14"/><field name="sequence">10</field>
+        <field name="name">Principles of design</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x14_2" model="lms.lesson">
+        <field name="course_id" ref="course_x14"/><field name="sequence">20</field>
+        <field name="name">Colour and type</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x14_3" model="lms.lesson">
+        <field name="course_id" ref="course_x14"/><field name="sequence">30</field>
+        <field name="name">Layout</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="lesson_x14_4" model="lms.lesson">
+        <field name="course_id" ref="course_x14"/><field name="sequence">40</field>
+        <field name="name">Working with images</field><field name="duration_minutes">45</field>
+    </record>
+    <record id="course_x15" model="lms.course">
+        <field name="name">Sinhala for Professionals</field><field name="code">LG110</field>
+        <field name="instructor_id" ref="user_lms_instructor3"/><field name="state">closed</field>
+        <field name="fee">8500</field><field name="max_students">0</field>
+        <field name="description"><![CDATA[<p>Sinhala for Professionals: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x15_1" model="lms.lesson">
+        <field name="course_id" ref="course_x15"/><field name="sequence">10</field>
+        <field name="name">Greetings and introductions</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x15_2" model="lms.lesson">
+        <field name="course_id" ref="course_x15"/><field name="sequence">20</field>
+        <field name="name">Workplace conversations</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x15_3" model="lms.lesson">
+        <field name="course_id" ref="course_x15"/><field name="sequence">30</field>
+        <field name="name">Writing formal letters</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="course_x16" model="lms.course">
+        <field name="name">Human Resource Practice</field><field name="code">HR201</field>
+        <field name="instructor_id" ref="user_lms_instructor4"/><field name="state">published</field>
+        <field name="fee">13500</field><field name="max_students">40</field>
+        <field name="description"><![CDATA[<p>Human Resource Practice: a practical course with hands-on exercises and a short assessment.</p>]]></field>
+    </record>
+    <record id="lesson_x16_1" model="lms.lesson">
+        <field name="course_id" ref="course_x16"/><field name="sequence">10</field>
+        <field name="name">Recruitment</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x16_2" model="lms.lesson">
+        <field name="course_id" ref="course_x16"/><field name="sequence">20</field>
+        <field name="name">Onboarding</field><field name="duration_minutes">120</field>
+    </record>
+    <record id="lesson_x16_3" model="lms.lesson">
+        <field name="course_id" ref="course_x16"/><field name="sequence">30</field>
+        <field name="name">Performance reviews</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="lesson_x16_4" model="lms.lesson">
+        <field name="course_id" ref="course_x16"/><field name="sequence">40</field>
+        <field name="name">Employment law basics</field><field name="duration_minutes">60</field>
+    </record>
+    <record id="enrollment_x001" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="user_lms_student5"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1'), ref('lesson_x02_2'), ref('lesson_x02_3'), ref('lesson_x02_4')])]"/>
+        
+    </record>
+    <record id="enrollment_x002" model="lms.enrollment">
+        <field name="course_id" ref="course_x07"/><field name="student_id" ref="user_lms_student5"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [])]"/>
+        
+    </record>
+    <record id="enrollment_x003" model="lms.enrollment">
+        <field name="course_id" ref="course_x14"/><field name="student_id" ref="user_lms_student5"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x14_1'), ref('lesson_x14_2'), ref('lesson_x14_3')])]"/>
+        
+    </record>
+    <record id="enrollment_x004" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="user_lms_student6"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1'), ref('lesson_x02_2')])]"/>
+        
+    </record>
+    <record id="enrollment_x005" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student6"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1'), ref('lesson_x03_2')])]"/>
+        
+    </record>
+    <record id="enrollment_x006" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="user_lms_student7"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x007" model="lms.enrollment">
+        <field name="course_id" ref="course_x14"/><field name="student_id" ref="user_lms_student7"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x14_1'), ref('lesson_x14_2')])]"/>
+        
+    </record>
+    <record id="enrollment_x008" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student8"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1'), ref('lesson_x03_2'), ref('lesson_x03_3'), ref('lesson_x03_4')])]"/>
+        <field name="grade">49</field>
+    </record>
+    <record id="enrollment_x009" model="lms.enrollment">
+        <field name="course_id" ref="course_x10"/><field name="student_id" ref="user_lms_student8"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x10_1'), ref('lesson_x10_2'), ref('lesson_x10_3'), ref('lesson_x10_4'), ref('lesson_x10_5')])]"/>
+        <field name="grade">55</field>
+    </record>
+    <record id="enrollment_x010" model="lms.enrollment">
+        <field name="course_id" ref="course_x08"/><field name="student_id" ref="user_lms_student8"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x08_1'), ref('lesson_x08_2'), ref('lesson_x08_3'), ref('lesson_x08_4')])]"/>
+        <field name="grade">71</field>
+    </record>
+    <record id="enrollment_x011" model="lms.enrollment">
+        <field name="course_id" ref="course_x08"/><field name="student_id" ref="user_lms_student9"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x08_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x012" model="lms.enrollment">
+        <field name="course_id" ref="course_x12"/><field name="student_id" ref="user_lms_student9"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x12_1'), ref('lesson_x12_2'), ref('lesson_x12_3'), ref('lesson_x12_4')])]"/>
+        <field name="grade">81</field>
+    </record>
+    <record id="enrollment_x013" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student10"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1'), ref('lesson_x03_2')])]"/>
+        
+    </record>
+    <record id="enrollment_x014" model="lms.enrollment">
+        <field name="course_id" ref="course_x07"/><field name="student_id" ref="user_lms_student10"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x07_1'), ref('lesson_x07_2'), ref('lesson_x07_3')])]"/>
+        
+    </record>
+    <record id="enrollment_x015" model="lms.enrollment">
+        <field name="course_id" ref="course_x01"/><field name="student_id" ref="user_lms_student10"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x01_1'), ref('lesson_x01_2'), ref('lesson_x01_3'), ref('lesson_x01_4')])]"/>
+        
+    </record>
+    <record id="enrollment_x016" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="user_lms_student10"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1'), ref('lesson_x02_2'), ref('lesson_x02_3'), ref('lesson_x02_4')])]"/>
+        
+    </record>
+    <record id="enrollment_x017" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student11"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [])]"/>
+        
+    </record>
+    <record id="enrollment_x018" model="lms.enrollment">
+        <field name="course_id" ref="course_x16"/><field name="student_id" ref="user_lms_student11"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x16_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x019" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student12"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x020" model="lms.enrollment">
+        <field name="course_id" ref="course_x05"/><field name="student_id" ref="user_lms_student12"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x05_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x021" model="lms.enrollment">
+        <field name="course_id" ref="course_x12"/><field name="student_id" ref="user_lms_student13"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x12_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x022" model="lms.enrollment">
+        <field name="course_id" ref="course_x09"/><field name="student_id" ref="user_lms_student13"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x09_1'), ref('lesson_x09_2'), ref('lesson_x09_3'), ref('lesson_x09_4')])]"/>
+        <field name="grade">74</field>
+    </record>
+    <record id="enrollment_x023" model="lms.enrollment">
+        <field name="course_id" ref="course_x10"/><field name="student_id" ref="user_lms_student13"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x10_1'), ref('lesson_x10_2'), ref('lesson_x10_3'), ref('lesson_x10_4'), ref('lesson_x10_5')])]"/>
+        <field name="grade">98</field>
+    </record>
+    <record id="enrollment_x024" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student13"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1'), ref('lesson_x03_2'), ref('lesson_x03_3'), ref('lesson_x03_4')])]"/>
+        <field name="grade">49</field>
+    </record>
+    <record id="enrollment_x025" model="lms.enrollment">
+        <field name="course_id" ref="course_x01"/><field name="student_id" ref="user_lms_student14"/><field name="state">dropped</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x01_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x026" model="lms.enrollment">
+        <field name="course_id" ref="course_x08"/><field name="student_id" ref="user_lms_student14"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x08_1'), ref('lesson_x08_2'), ref('lesson_x08_3'), ref('lesson_x08_4')])]"/>
+        <field name="grade">36</field>
+    </record>
+    <record id="enrollment_x027" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student15"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1'), ref('lesson_x03_2')])]"/>
+        
+    </record>
+    <record id="enrollment_x028" model="lms.enrollment">
+        <field name="course_id" ref="course_x05"/><field name="student_id" ref="user_lms_student16"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x05_1'), ref('lesson_x05_2'), ref('lesson_x05_3'), ref('lesson_x05_4')])]"/>
+        <field name="grade">37</field>
+    </record>
+    <record id="enrollment_x029" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="user_lms_student16"/><field name="state">dropped</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x030" model="lms.enrollment">
+        <field name="course_id" ref="course_x11"/><field name="student_id" ref="user_lms_student17"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x11_1'), ref('lesson_x11_2'), ref('lesson_x11_3'), ref('lesson_x11_4')])]"/>
+        <field name="grade">41</field>
+    </record>
+    <record id="enrollment_x031" model="lms.enrollment">
+        <field name="course_id" ref="course_x06"/><field name="student_id" ref="user_lms_student17"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x06_1'), ref('lesson_x06_2'), ref('lesson_x06_3'), ref('lesson_x06_4'), ref('lesson_x06_5')])]"/>
+        <field name="grade">85</field>
+    </record>
+    <record id="enrollment_x032" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="user_lms_student17"/><field name="state">dropped</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x033" model="lms.enrollment">
+        <field name="course_id" ref="course_x16"/><field name="student_id" ref="user_lms_student18"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x16_1'), ref('lesson_x16_2'), ref('lesson_x16_3')])]"/>
+        
+    </record>
+    <record id="enrollment_x034" model="lms.enrollment">
+        <field name="course_id" ref="course_x10"/><field name="student_id" ref="user_lms_student18"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [])]"/>
+        
+    </record>
+    <record id="enrollment_x035" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student19"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1'), ref('lesson_x03_2'), ref('lesson_x03_3'), ref('lesson_x03_4')])]"/>
+        <field name="grade">64</field>
+    </record>
+    <record id="enrollment_x036" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="user_lms_student19"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1'), ref('lesson_x02_2'), ref('lesson_x02_3'), ref('lesson_x02_4'), ref('lesson_x02_5')])]"/>
+        <field name="grade">74</field>
+    </record>
+    <record id="enrollment_x037" model="lms.enrollment">
+        <field name="course_id" ref="course_x16"/><field name="student_id" ref="user_lms_student20"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x16_1'), ref('lesson_x16_2'), ref('lesson_x16_3'), ref('lesson_x16_4')])]"/>
+        <field name="grade">97</field>
+    </record>
+    <record id="enrollment_x038" model="lms.enrollment">
+        <field name="course_id" ref="course_x09"/><field name="student_id" ref="user_lms_student20"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [])]"/>
+        
+    </record>
+    <record id="enrollment_x039" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="user_lms_student20"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x040" model="lms.enrollment">
+        <field name="course_id" ref="course_x16"/><field name="student_id" ref="user_lms_student21"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x16_1'), ref('lesson_x16_2'), ref('lesson_x16_3'), ref('lesson_x16_4')])]"/>
+        <field name="grade">94</field>
+    </record>
+    <record id="enrollment_x041" model="lms.enrollment">
+        <field name="course_id" ref="course_x01"/><field name="student_id" ref="user_lms_student22"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x01_1'), ref('lesson_x01_2'), ref('lesson_x01_3'), ref('lesson_x01_4'), ref('lesson_x01_5')])]"/>
+        <field name="grade">57</field>
+    </record>
+    <record id="enrollment_x042" model="lms.enrollment">
+        <field name="course_id" ref="course_x06"/><field name="student_id" ref="user_lms_student22"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x06_1'), ref('lesson_x06_2'), ref('lesson_x06_3'), ref('lesson_x06_4'), ref('lesson_x06_5')])]"/>
+        <field name="grade">75</field>
+    </record>
+    <record id="enrollment_x043" model="lms.enrollment">
+        <field name="course_id" ref="course_x05"/><field name="student_id" ref="user_lms_student22"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x05_1'), ref('lesson_x05_2'), ref('lesson_x05_3'), ref('lesson_x05_4')])]"/>
+        <field name="grade">88</field>
+    </record>
+    <record id="enrollment_x044" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student22"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x045" model="lms.enrollment">
+        <field name="course_id" ref="course_x11"/><field name="student_id" ref="user_lms_student23"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x11_1'), ref('lesson_x11_2'), ref('lesson_x11_3'), ref('lesson_x11_4')])]"/>
+        <field name="grade">57</field>
+    </record>
+    <record id="enrollment_x046" model="lms.enrollment">
+        <field name="course_id" ref="course_x05"/><field name="student_id" ref="user_lms_student23"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x05_1'), ref('lesson_x05_2'), ref('lesson_x05_3'), ref('lesson_x05_4')])]"/>
+        <field name="grade">81</field>
+    </record>
+    <record id="enrollment_x047" model="lms.enrollment">
+        <field name="course_id" ref="course_x11"/><field name="student_id" ref="user_lms_student24"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x11_1'), ref('lesson_x11_2')])]"/>
+        
+    </record>
+    <record id="enrollment_x048" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student24"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1'), ref('lesson_x03_2'), ref('lesson_x03_3'), ref('lesson_x03_4')])]"/>
+        <field name="grade">37</field>
+    </record>
+    <record id="enrollment_x049" model="lms.enrollment">
+        <field name="course_id" ref="course_x09"/><field name="student_id" ref="user_lms_student25"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x09_1'), ref('lesson_x09_2'), ref('lesson_x09_3')])]"/>
+        
+    </record>
+    <record id="enrollment_x050" model="lms.enrollment">
+        <field name="course_id" ref="course_x14"/><field name="student_id" ref="user_lms_student25"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x14_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x051" model="lms.enrollment">
+        <field name="course_id" ref="course_x11"/><field name="student_id" ref="user_lms_student26"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x11_1'), ref('lesson_x11_2'), ref('lesson_x11_3')])]"/>
+        
+    </record>
+    <record id="enrollment_x052" model="lms.enrollment">
+        <field name="course_id" ref="course_x09"/><field name="student_id" ref="user_lms_student26"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [])]"/>
+        
+    </record>
+    <record id="enrollment_x053" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="user_lms_student27"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1'), ref('lesson_x02_2'), ref('lesson_x02_3'), ref('lesson_x02_4'), ref('lesson_x02_5')])]"/>
+        <field name="grade">71</field>
+    </record>
+    <record id="enrollment_x054" model="lms.enrollment">
+        <field name="course_id" ref="course_x11"/><field name="student_id" ref="user_lms_student27"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x11_1'), ref('lesson_x11_2'), ref('lesson_x11_3'), ref('lesson_x11_4')])]"/>
+        <field name="grade">34</field>
+    </record>
+    <record id="enrollment_x055" model="lms.enrollment">
+        <field name="course_id" ref="course_x12"/><field name="student_id" ref="user_lms_student27"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x12_1'), ref('lesson_x12_2'), ref('lesson_x12_3'), ref('lesson_x12_4')])]"/>
+        <field name="grade">83</field>
+    </record>
+    <record id="enrollment_x056" model="lms.enrollment">
+        <field name="course_id" ref="course_x05"/><field name="student_id" ref="user_lms_student27"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [])]"/>
+        
+    </record>
+    <record id="enrollment_x057" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student28"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [])]"/>
+        
+    </record>
+    <record id="enrollment_x058" model="lms.enrollment">
+        <field name="course_id" ref="course_x11"/><field name="student_id" ref="user_lms_student29"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x11_1'), ref('lesson_x11_2'), ref('lesson_x11_3'), ref('lesson_x11_4')])]"/>
+        <field name="grade">41</field>
+    </record>
+    <record id="enrollment_x059" model="lms.enrollment">
+        <field name="course_id" ref="course_x09"/><field name="student_id" ref="user_lms_student29"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x09_1'), ref('lesson_x09_2'), ref('lesson_x09_3'), ref('lesson_x09_4')])]"/>
+        <field name="grade">57</field>
+    </record>
+    <record id="enrollment_x060" model="lms.enrollment">
+        <field name="course_id" ref="course_x09"/><field name="student_id" ref="user_lms_student30"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x09_1'), ref('lesson_x09_2'), ref('lesson_x09_3'), ref('lesson_x09_4')])]"/>
+        <field name="grade">36</field>
+    </record>
+    <record id="enrollment_x061" model="lms.enrollment">
+        <field name="course_id" ref="course_x03"/><field name="student_id" ref="user_lms_student30"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x03_1'), ref('lesson_x03_2')])]"/>
+        
+    </record>
+    <record id="enrollment_x062" model="lms.enrollment">
+        <field name="course_id" ref="course_x12"/><field name="student_id" ref="user_lms_student30"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x12_1'), ref('lesson_x12_2'), ref('lesson_x12_3'), ref('lesson_x12_4')])]"/>
+        <field name="grade">98</field>
+    </record>
+    <record id="enrollment_x063" model="lms.enrollment">
+        <field name="course_id" ref="course_x01"/><field name="student_id" ref="user_lms_student30"/><field name="state">completed</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x01_1'), ref('lesson_x01_2'), ref('lesson_x01_3'), ref('lesson_x01_4'), ref('lesson_x01_5')])]"/>
+        <field name="grade">52</field>
+    </record>
+    <record id="enrollment_x064" model="lms.enrollment">
+        <field name="course_id" ref="course_x02"/><field name="student_id" ref="lms_institute.user_lms_student_3"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x02_1'), ref('lesson_x02_2'), ref('lesson_x02_3')])]"/>
+        
+    </record>
+    <record id="enrollment_x065" model="lms.enrollment">
+        <field name="course_id" ref="course_x07"/><field name="student_id" ref="lms_institute.user_lms_student_3"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [])]"/>
+        
+    </record>
+    <record id="enrollment_x066" model="lms.enrollment">
+        <field name="course_id" ref="course_x12"/><field name="student_id" ref="lms_institute.user_lms_student_3"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x12_1'), ref('lesson_x12_2')])]"/>
+        
+    </record>
+    <record id="enrollment_x067" model="lms.enrollment">
+        <field name="course_id" ref="course_x14"/><field name="student_id" ref="lms_institute.user_lms_student_3"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x14_1')])]"/>
+        
+    </record>
+    <record id="enrollment_x068" model="lms.enrollment">
+        <field name="course_id" ref="course_x16"/><field name="student_id" ref="lms_institute.user_lms_student_4"/><field name="state">enrolled</field>
+        <field name="completed_lesson_ids" eval="[(6, 0, [ref('lesson_x16_1'), ref('lesson_x16_2'), ref('lesson_x16_3')])]"/>
+        
+    </record>
+</odoo>
