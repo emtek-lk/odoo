@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="party_riverside" model="res.partner">
+        <field name="name">Riverside Growers</field><field name="is_company" eval="True"/><field name="trace_region">Ratnapura</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_hillgreens" model="res.partner">
+        <field name="name">Hill Country Greens</field><field name="is_company" eval="True"/><field name="trace_region">Badulla</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_coconut" model="res.partner">
+        <field name="name">Southern Coconut Estate</field><field name="is_company" eval="True"/><field name="trace_region">Matara</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_delta" model="res.partner">
+        <field name="name">Delta Rice Farmers</field><field name="is_company" eval="True"/><field name="trace_region">Ampara</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_uva" model="res.partner">
+        <field name="name">Uva Highlands Farm</field><field name="is_company" eval="True"/><field name="trace_region">Badulla</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_eastern" model="res.partner">
+        <field name="name">Eastern Fruit Growers</field><field name="is_company" eval="True"/><field name="trace_region">Batticaloa</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_farmer')])]"/>
+    </record>
+    <record id="party_reapers" model="res.partner">
+        <field name="name">Golden Reapers Co-op</field><field name="is_company" eval="True"/><field name="trace_region">Anuradhapura</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_harvester')])]"/>
+    </record>
+    <record id="party_spiceroute" model="res.partner">
+        <field name="name">Spice Route Foods</field><field name="is_company" eval="True"/><field name="trace_region">Matale</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_processor')])]"/>
+    </record>
+    <record id="party_oilmills" model="res.partner">
+        <field name="name">Island Oil Mills</field><field name="is_company" eval="True"/><field name="trace_region">Kurunegala</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_processor')])]"/>
+    </record>
+    <record id="party_tropic" model="res.partner">
+        <field name="name">Tropic Beverages</field><field name="is_company" eval="True"/><field name="trace_region">Gampaha</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_processor')])]"/>
+    </record>
+    <record id="party_rapid" model="res.partner">
+        <field name="name">Rapid Haulage</field><field name="is_company" eval="True"/><field name="trace_region">Kandy</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_transporter')])]"/>
+    </record>
+    <record id="party_southern" model="res.partner">
+        <field name="name">Southern Distributors</field><field name="is_company" eval="True"/><field name="trace_region">Galle</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_distributor')])]"/>
+    </record>
+    <record id="party_freshmart" model="res.partner">
+        <field name="name">FreshMart</field><field name="is_company" eval="True"/><field name="trace_region">Colombo</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_retailer')])]"/>
+    </record>
+    <record id="party_villagestore" model="res.partner">
+        <field name="name">Village Store</field><field name="is_company" eval="True"/><field name="trace_region">Kurunegala</field>
+        <field name="trace_role_ids" eval="[(6, 0, [ref('trace_base.role_retailer')])]"/>
+    </record>
+    <record id="user_riverside" model="res.users">
+        <field name="name">Riverside Growers (team)</field><field name="login">trace_riverside</field><field name="password">trace_riverside</field>
+        <field name="parent_id" ref="party_riverside"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_hillgreens" model="res.users">
+        <field name="name">Hill Country Greens (team)</field><field name="login">trace_hillgreens</field><field name="password">trace_hillgreens</field>
+        <field name="parent_id" ref="party_hillgreens"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_coconut" model="res.users">
+        <field name="name">Southern Coconut Estate (team)</field><field name="login">trace_coconut</field><field name="password">trace_coconut</field>
+        <field name="parent_id" ref="party_coconut"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_delta" model="res.users">
+        <field name="name">Delta Rice Farmers (team)</field><field name="login">trace_delta</field><field name="password">trace_delta</field>
+        <field name="parent_id" ref="party_delta"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_uva" model="res.users">
+        <field name="name">Uva Highlands Farm (team)</field><field name="login">trace_uva</field><field name="password">trace_uva</field>
+        <field name="parent_id" ref="party_uva"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_eastern" model="res.users">
+        <field name="name">Eastern Fruit Growers (team)</field><field name="login">trace_eastern</field><field name="password">trace_eastern</field>
+        <field name="parent_id" ref="party_eastern"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_reapers" model="res.users">
+        <field name="name">Golden Reapers Co-op (team)</field><field name="login">trace_reapers</field><field name="password">trace_reapers</field>
+        <field name="parent_id" ref="party_reapers"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_spiceroute" model="res.users">
+        <field name="name">Spice Route Foods (team)</field><field name="login">trace_spiceroute</field><field name="password">trace_spiceroute</field>
+        <field name="parent_id" ref="party_spiceroute"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_oilmills" model="res.users">
+        <field name="name">Island Oil Mills (team)</field><field name="login">trace_oilmills</field><field name="password">trace_oilmills</field>
+        <field name="parent_id" ref="party_oilmills"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_tropic" model="res.users">
+        <field name="name">Tropic Beverages (team)</field><field name="login">trace_tropic</field><field name="password">trace_tropic</field>
+        <field name="parent_id" ref="party_tropic"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_rapid" model="res.users">
+        <field name="name">Rapid Haulage (team)</field><field name="login">trace_rapid</field><field name="password">trace_rapid</field>
+        <field name="parent_id" ref="party_rapid"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_southern" model="res.users">
+        <field name="name">Southern Distributors (team)</field><field name="login">trace_southern</field><field name="password">trace_southern</field>
+        <field name="parent_id" ref="party_southern"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_freshmart" model="res.users">
+        <field name="name">FreshMart (team)</field><field name="login">trace_freshmart</field><field name="password">trace_freshmart</field>
+        <field name="parent_id" ref="party_freshmart"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="user_villagestore" model="res.users">
+        <field name="name">Village Store (team)</field><field name="login">trace_villagestore</field><field name="password">trace_villagestore</field>
+        <field name="parent_id" ref="party_villagestore"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_user'), ref('trace_base.group_trace_user')])]"/>
+    </record>
+    <record id="product_potato" model="trace.product">
+        <field name="name">Potato</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_onion" model="trace.product">
+        <field name="name">Red Onion</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_banana" model="trace.product">
+        <field name="name">Banana</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_coconut" model="trace.product">
+        <field name="name">Coconut</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_coconutoil" model="trace.product">
+        <field name="name">Coconut Oil</field><field name="category">processed</field><field name="unit">kg</field>
+    </record>
+    <record id="product_chilli" model="trace.product">
+        <field name="name">Green Chilli</field><field name="category">crop</field><field name="unit">kg</field>
+    </record>
+    <record id="product_chillipowder" model="trace.product">
+        <field name="name">Chilli Powder</field><field name="category">processed</field><field name="unit">kg</field>
+    </record>
+    <record id="product_juice" model="trace.product">
+        <field name="name">Fruit Juice</field><field name="category">processed</field><field name="unit">kg</field>
+    </record>
+    <function model="trace.demo.extra.loader" name="load_demo"/>
+</odoo>

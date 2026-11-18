@@ -12,7 +12,7 @@ class _Story:
         self.rnd = random.Random(7)
         self.clock = fields.Datetime.now()
         self.users = {u.login[len('trace_'):]: u for u in env['res.users'].search([('login', '=like', 'trace\\_%')])}
-        self.parties = {key: env.ref('trace_demo.party_%s' % key) for key in self.users}
+        self.parties = {key: user.partner_id.commercial_partner_id for key, user in self.users.items()}
         self.products = {p: env.ref('trace_demo.product_%s' % p) for p in (
             'tomato', 'carrot', 'paddy', 'rice', 'sauce', 'tealeaf', 'blacktea', 'cinnamon', 'cinnamon_ground')}
 
