@@ -13,6 +13,7 @@
 # Data
 filestore/
 *.zip
+!/database-backups/*.zip
 *.dump
 *.sql.gz
 
