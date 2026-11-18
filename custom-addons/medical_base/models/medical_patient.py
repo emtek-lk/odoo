@@ -11,7 +11,7 @@ class MedicalPatient(models.Model):
     _inherits = {'res.partner': 'partner_id'}
     _order = 'patient_code'
 
-    partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict', auto_join=True, index=True)
+    partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict', index=True)
     user_id = fields.Many2one(
         'res.users', string='Portal User', compute='_compute_user_id', store=True, index=True,
         help="The login of this patient: the user that shares the patient's contact.")

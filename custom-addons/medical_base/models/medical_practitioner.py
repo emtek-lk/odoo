@@ -7,7 +7,7 @@ class MedicalPractitioner(models.Model):
     _inherits = {'res.partner': 'partner_id'}
     _order = 'name'
 
-    partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict', auto_join=True, index=True)
+    partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict', index=True)
     user_id = fields.Many2one('res.users', string='User', copy=False, index=True, ondelete='set null')
     specialty = fields.Char()
     licence_no = fields.Char(string='Licence No.', copy=False)

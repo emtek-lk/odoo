@@ -7,7 +7,7 @@ class MedicalRecordMixin(models.AbstractModel):
     _description = 'Medical Care Record'
     _check_company_auto = True
 
-    patient_id = fields.Many2one('medical.patient', string='Patient', required=True, index=True, tracking=True)
+    patient_id = fields.Many2one('medical.patient', string='Patient', required=True, index=True)
     patient_user_id = fields.Many2one(
         'res.users', related='patient_id.user_id', store=True, index=True, string='Patient User')
     company_id = fields.Many2one(
