@@ -1,0 +1,22 @@
+id,name,model_id,group_id/id,operation,domain
+access_medical_patient_self,Patient: patients read themselves,medical.patient,group_medical_patient,r,"[('user_id', '=', user.id)]"
+access_medical_patient_practitioner_read,Patient: practitioners read patients of their institutions or shared with them,medical.patient,group_medical_practitioner,r,"['|', ('institution_ids', 'in', company_ids), ('consent_ids', 'any', [('state', '=', 'active'), ('date_from', '<=', time.strftime('%Y-%m-%d')), '|', ('date_to', '=', False), ('date_to', '>=', time.strftime('%Y-%m-%d')), '|', ('grantee_user_id', '=', user.id), ('grantee_company_id', 'in', company_ids)])]"
+access_medical_patient_practitioner_write,Patient: practitioners register and update patients of their institutions,medical.patient,group_medical_practitioner,cu,"[('institution_ids', 'in', company_ids)]"
+access_medical_patient_manager,Patient: managers manage patients of their institutions,medical.patient,group_medical_manager,cru,"[('institution_ids', 'in', company_ids)]"
+access_medical_practitioner_read_practitioner,Practitioner: practitioners read the directory,medical.practitioner,group_medical_practitioner,r,
+access_medical_practitioner_read_patient,Practitioner: patients read the directory,medical.practitioner,group_medical_patient,r,
+access_medical_practitioner_manager,Practitioner: managers manage practitioners,medical.practitioner,group_medical_manager,cru,
+access_medical_consent_patient_read,Consent: patients read their own,medical.consent,group_medical_patient,r,"[('patient_user_id', '=', user.id)]"
+access_medical_consent_patient_write,Consent: patients grant and revoke their own,medical.consent,group_medical_patient,cu,"[('patient_user_id', '=', user.id), ('method', '=', 'portal')]"
+access_medical_consent_practitioner_read,Consent: practitioners read consents given to them or their institution,medical.consent,group_medical_practitioner,r,"['|', ('grantee_user_id', '=', user.id), ('grantee_company_id', 'in', company_ids)]"
+access_medical_consent_practitioner_create,Consent: staff record in-person consent,medical.consent,group_medical_practitioner,c,"[('method', '=', 'in_person')]"
+access_medical_consent_manager,Consent: managers read consents given to their institutions,medical.consent,group_medical_manager,r,"[('grantee_company_id', 'in', company_ids)]"
+access_medical_access_log_patient,Access log: patients see who viewed their records,medical.access.log,group_medical_patient,r,"[('patient_user_id', '=', user.id)]"
+access_medical_access_log_manager,Access log: managers see who viewed their institution records,medical.access.log,group_medical_manager,r,"[('owner_company_id', 'in', company_ids)]"
+access_medical_encounter_patient,Encounter: patients read their finished encounters,medical.encounter,group_medical_patient,r,"[('patient_user_id', '=', user.id), ('state', '=', 'done')]"
+access_medical_encounter_practitioner_read,Encounter: practitioners read own institution and shared encounters,medical.encounter,group_medical_practitioner,r,"['|', ('company_id', 'in', company_ids), '&', ('state', '=', 'done'), ('patient_id', 'any', [('consent_ids', 'any', [('state', '=', 'active'), ('scope', 'in', ['all', 'encounter']), ('date_from', '<=', time.strftime('%Y-%m-%d')), '|', ('date_to', '=', False), ('date_to', '>=', time.strftime('%Y-%m-%d')), '|', ('grantee_user_id', '=', user.id), ('grantee_company_id', 'in', company_ids)])])]"
+access_medical_encounter_practitioner_write,Encounter: practitioners record encounters for their institution,medical.encounter,group_medical_practitioner,cu,"[('company_id', 'in', company_ids)]"
+access_medical_encounter_manager,Encounter: managers read encounters of their institutions,medical.encounter,group_medical_manager,r,"[('company_id', 'in', company_ids)]"
+access_medical_addendum_read_patient,Addendum: patients read addenda of visible encounters,medical.encounter.addendum,group_medical_patient,r,"[('encounter_id', 'any', [])]"
+access_medical_addendum_read_practitioner,Addendum: practitioners read addenda of visible encounters,medical.encounter.addendum,group_medical_practitioner,r,"[('encounter_id', 'any', [])]"
+access_medical_addendum_write,Addendum: practitioners add addenda to their institution encounters,medical.encounter.addendum,group_medical_practitioner,c,"[('encounter_id.company_id', 'in', company_ids)]"

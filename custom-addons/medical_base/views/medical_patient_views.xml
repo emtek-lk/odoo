@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="medical_patient_view_search" model="ir.ui.view">
+        <field name="name">medical.patient.search</field>
+        <field name="model">medical.patient</field>
+        <field name="arch" type="xml">
+            <search string="Patients">
+                <field name="name" filter_domain="['|', '|', ('name', 'ilike', self), ('patient_code', 'ilike', self), ('national_id', 'ilike', self)]" string="Patient"/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="medical_patient_view_list" model="ir.ui.view">
+        <field name="name">medical.patient.list</field>
+        <field name="model">medical.patient</field>
+        <field name="arch" type="xml">
+            <list string="Patients">
+                <field name="patient_code"/>
+                <field name="name"/>
+                <field name="national_id"/>
+                <field name="sex"/>
+                <field name="age"/>
+                <field name="phone" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="medical_patient_view_form" model="ir.ui.view">
+        <field name="name">medical.patient.form</field>
+        <field name="model">medical.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <field name="active" invisible="1"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Full name"/></h1>
+                        <h3><field name="patient_code"/></h3>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="national_id"/>
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="sex"/>
+                            <field name="blood_group"/>
+                        </group>
+                        <group>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="user_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="History" name="history">
+                            <field name="history_html" readonly="1"/>
+                        </page>
+                        <page string="Medical Summary" name="summary">
+                            <group>
+                                <field name="allergies"/>
+                                <field name="chronic_conditions"/>
+                            </group>
+                        </page>
+                        <page string="Institutions" name="institutions">
+                            <field name="institution_ids" readonly="1"/>
+                        </page>
+                        <page string="Consents" name="consents">
+                            <field name="consent_ids" readonly="1">
+                                <list>
+                                    <field name="grantee_name"/>
+                                    <field name="scope"/>
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="medical_patient_action" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">medical.patient</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register your first patient</p>
+            <p>Each patient gets a code that identifies them across institutions.</p>
+        </field>
+    </record>
+</odoo>

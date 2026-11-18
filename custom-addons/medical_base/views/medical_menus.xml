@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_medical_root" name="Medical" sequence="46"
+              web_icon="medical_base,static/description/icon.svg"
+              groups="group_medical_patient,group_medical_practitioner,group_medical_manager"/>
+    <menuitem id="menu_medical_patients" name="Patients" parent="menu_medical_root"
+              action="medical_patient_action" sequence="10"
+              groups="group_medical_practitioner,group_medical_manager"/>
+    <menuitem id="menu_medical_encounters" name="Encounters" parent="menu_medical_root"
+              action="medical_encounter_action" sequence="20"/>
+    <menuitem id="menu_medical_consents" name="Consents" parent="menu_medical_root"
+              action="medical_consent_action" sequence="60"/>
+    <menuitem id="menu_medical_access_log" name="Access Log" parent="menu_medical_root"
+              action="medical_access_log_action" sequence="70"/>
+    <menuitem id="menu_medical_config" name="Configuration" parent="menu_medical_root" sequence="90"
+              groups="group_medical_manager"/>
+    <menuitem id="menu_medical_practitioners" name="Practitioners" parent="menu_medical_config"
+              action="medical_practitioner_action" sequence="10"/>
+</odoo>
