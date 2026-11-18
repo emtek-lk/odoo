@@ -1,0 +1,13 @@
+id,name,model_id,group_id/id,operation,domain
+access_trace_role_user,Role: participants read roles,trace.role,group_trace_user,r,
+access_trace_role_manager,Role: managers manage roles,trace.role,group_trace_manager,crud,
+access_trace_product_user,Product: participants read and add products,trace.product,group_trace_user,cr,
+access_trace_product_manager,Product: managers manage the catalog,trace.product,group_trace_manager,crud,
+access_trace_batch_read,Batch: parties read batches that reached them or came from them,trace.batch,group_trace_user,r,"[('visible_party_ids', 'in', [user.trace_party_id.id])]"
+access_trace_batch_create,Batch: parties start batches they hold,trace.batch,group_trace_user,c,"[('holder_id', '=', user.trace_party_id.id)]"
+access_trace_batch_write,Batch: the holder edits its batch,trace.batch,group_trace_user,u,"[('holder_id', '=', user.trace_party_id.id)]"
+access_trace_batch_manager,Batch: managers manage every batch,trace.batch,group_trace_manager,cru,
+access_trace_event_read,Event: parties read the history of batches they can see,trace.event,group_trace_user,r,"[('batch_id.visible_party_ids', 'in', [user.trace_party_id.id])]"
+access_trace_event_create,Event: the holder records events as itself,trace.event,group_trace_user,c,"[('batch_id.holder_id', '=', user.trace_party_id.id), ('party_id', '=', user.trace_party_id.id), ('user_id', '=', user.id)]"
+access_trace_event_manager,Event: managers record events as themselves,trace.event,group_trace_manager,c,"[('user_id', '=', user.id)]"
+access_trace_event_manager_read,Event: managers read every event,trace.event,group_trace_manager,r,

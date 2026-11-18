@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="trace_batch_view_search" model="ir.ui.view">
+        <field name="name">trace.batch.search</field>
+        <field name="model">trace.batch</field>
+        <field name="arch" type="xml">
+            <search string="Batches">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="origin_party_id"/>
+                <field name="holder_id"/>
+                <filter name="held_by_me" string="Held by my party" domain="[('is_holder', '=', True)]"/>
+                <filter name="active" string="Active" domain="[('state', '=', 'active')]"/>
+                <filter name="recalled" string="Recalled" domain="[('state', '=', 'recalled')]"/>
+                <group>
+                    <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                    <filter name="group_origin" string="Origin" context="{'group_by': 'origin_party_id'}"/>
+                    <filter name="group_holder" string="Holder" context="{'group_by': 'holder_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="trace_batch_view_list" model="ir.ui.view">
+        <field name="name">trace.batch.list</field>
+        <field name="model">trace.batch</field>
+        <field name="arch" type="xml">
+            <list string="Batches">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="origin_party_id"/>
+                <field name="holder_id"/>
+                <field name="quantity_remaining"/>
+                <field name="unit"/>
+                <field name="harvest_date" optional="show"/>
+                <field name="state" widget="badge" decoration-success="state == 'active'"
+                       decoration-info="state == 'in_transit'" decoration-danger="state == 'recalled'"
+                       decoration-muted="state == 'consumed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="trace_batch_view_kanban" model="ir.ui.view">
+        <field name="name">trace.batch.kanban</field>
+        <field name="model">trace.batch</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="holder_id">
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold fs-5"/>
+                        <div><field name="product_id"/></div>
+                        <div class="text-muted">From <field name="origin_party_id"/></div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <span><field name="quantity_remaining"/> <field name="unit"/></span>
+                            <field name="state" widget="badge"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="trace_batch_view_form" model="ir.ui.view">
+        <field name="name">trace.batch.form</field>
+        <field name="model">trace.batch</field>
+        <field name="arch" type="xml">
+            <form string="Batch">
+                <header>
+                    <field name="is_holder" invisible="1"/>
+                    <button name="action_add_event" string="Add event" type="object" class="btn-primary"
+                            invisible="not id or not is_holder or state in ('recalled', 'consumed')"/>
+                    <button name="action_verify_chain" string="Verify history" type="object" invisible="not id"/>
+                    <button name="action_recall" string="Recall" type="object" invisible="not id or state == 'recalled'"
+                            confirm="Recall this batch and every batch made from it?"/>
+                    <field name="state" widget="statusbar" statusbar_visible="active,in_transit,consumed"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Recalled" bg_color="text-bg-danger" invisible="state != 'recalled'"/>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Origin">
+                            <field name="product_id" options="{'no_create': True}" readonly="id"/>
+                            <field name="origin_party_id" options="{'no_create': True}" readonly="id"/>
+                            <field name="harvester_id" options="{'no_create': True}" readonly="id"/>
+                            <field name="origin_place" readonly="id"/>
+                            <field name="plot" readonly="id"/>
+                            <field name="harvest_date" readonly="id"/>
+                            <field name="latitude" readonly="id"/>
+                            <field name="longitude" readonly="id"/>
+                        </group>
+                        <group string="Now">
+                            <field name="initial_quantity" readonly="id"/>
+                            <field name="quantity_remaining"/>
+                            <field name="unit"/>
+                            <field name="holder_id" options="{'no_create': True}" readonly="id"/>
+                            <field name="chain_valid" invisible="not id"/>
+                            <field name="chain_checked_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Full journey" name="journey">
+                            <field name="journey_event_ids" readonly="1">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="batch_id"/>
+                                    <field name="sequence"/>
+                                    <field name="event_type" widget="badge"/>
+                                    <field name="party_id"/>
+                                    <field name="location"/>
+                                    <field name="quantity_delta"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Lineage" name="lineage">
+                            <group>
+                                <field name="parent_ids" widget="many2many_tags" readonly="1"/>
+                                <field name="child_ids" widget="many2many_tags" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes" readonly="id"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="trace_batch_action" model="ir.actions.act_window">
+        <field name="name">Batches</field>
+        <field name="res_model">trace.batch</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_held_by_me': 0}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Start your first batch</p>
+            <p>A batch is a harvest or production lot. Every handler adds events, and the history cannot be altered.</p>
+        </field>
+    </record>
+</odoo>

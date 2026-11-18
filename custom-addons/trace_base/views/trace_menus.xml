@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_trace_root" name="Supply Chain" sequence="47"
+              web_icon="trace_base,static/description/icon.svg" groups="group_trace_user"/>
+    <menuitem id="menu_trace_batches" name="Batches" parent="menu_trace_root" action="trace_batch_action" sequence="10"/>
+    <menuitem id="menu_trace_events" name="Events" parent="menu_trace_root" action="trace_event_action" sequence="20"/>
+    <menuitem id="menu_trace_config" name="Configuration" parent="menu_trace_root" sequence="90" groups="group_trace_manager"/>
+    <menuitem id="menu_trace_parties" name="Parties" parent="menu_trace_config" action="trace_party_action" sequence="10"/>
+    <menuitem id="menu_trace_products" name="Products" parent="menu_trace_config" action="trace_product_action" sequence="20"/>
+    <menuitem id="menu_trace_roles" name="Roles" parent="menu_trace_config" action="trace_role_action" sequence="30"/>
+</odoo>

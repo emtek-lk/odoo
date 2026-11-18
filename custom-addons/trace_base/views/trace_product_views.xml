@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="trace_product_view_list" model="ir.ui.view">
+        <field name="name">trace.product.list</field>
+        <field name="model">trace.product</field>
+        <field name="arch" type="xml">
+            <list string="Products" editable="bottom">
+                <field name="name"/>
+                <field name="category"/>
+                <field name="unit"/>
+            </list>
+        </field>
+    </record>
+    <record id="trace_product_action" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">trace.product</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="trace_role_view_list" model="ir.ui.view">
+        <field name="name">trace.role.list</field>
+        <field name="model">trace.role</field>
+        <field name="arch" type="xml">
+            <list string="Roles" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+            </list>
+        </field>
+    </record>
+    <record id="trace_role_action" model="ir.actions.act_window">
+        <field name="name">Roles</field>
+        <field name="res_model">trace.role</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

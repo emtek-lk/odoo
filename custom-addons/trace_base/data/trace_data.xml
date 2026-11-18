@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="role_farmer" model="trace.role"><field name="name">Farmer</field><field name="code">farmer</field><field name="sequence">10</field></record>
+    <record id="role_harvester" model="trace.role"><field name="name">Harvester</field><field name="code">harvester</field><field name="sequence">20</field></record>
+    <record id="role_processor" model="trace.role"><field name="name">Processor / Manufacturer</field><field name="code">processor</field><field name="sequence">30</field></record>
+    <record id="role_transporter" model="trace.role"><field name="name">Transporter</field><field name="code">transporter</field><field name="sequence">40</field></record>
+    <record id="role_distributor" model="trace.role"><field name="name">Distributor</field><field name="code">distributor</field><field name="sequence">50</field></record>
+    <record id="role_retailer" model="trace.role"><field name="name">Retailer</field><field name="code">retailer</field><field name="sequence">60</field></record>
+
+    <record id="seq_trace_batch" model="ir.sequence">
+        <field name="name">Trace Batch</field>
+        <field name="code">trace.batch</field>
+        <field name="prefix">TB-</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="ir_cron_verify_chains" model="ir.cron">
+        <field name="name">Supply chain: verify history hashes</field>
+        <field name="model_id" ref="model_trace_batch"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_verify_chains()</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+</odoo>
